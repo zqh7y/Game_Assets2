@@ -5,7 +5,8 @@ Art assets for the brawler game.
 ## Folders
 
 - `brawlers/` - character cards (one PNG per brawler, name on the card)
-- `animations/` - walk / run / attack sprite sheets (coming)
+- `cards/` - draft pick cards (transparent PNG, one per brawler, with the count badge)
+- `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
 - `effects/` - attack and ability effects (coming)
 
 ## Brawlers
@@ -25,6 +26,10 @@ Art assets for the brawler game.
 | Octo | octopus | - |
 
 ![All brawlers](brawlers/_overview.png)
+
+## Pick cards
+
+![All pick cards](cards/_overview.jpg)
 
 ## Design laws
 
