@@ -23,7 +23,10 @@ Art assets for the brawler game.
 | Pango | pangolin | armored roller |
 | Bill | shoebill | stare stun |
 | Tardi | tardigrade | tank |
-| Octo | octopus | - |
+| Octo | octopus | ink squirt |
+| Peep | chick | swarm pecker |
+| Dragon | baby dragon | fire puff |
+| Spooky | hooded ghost | boo scare |
 
 ![All brawlers](brawlers/_overview.png)
 
