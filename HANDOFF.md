@@ -13,6 +13,16 @@ Last updated: Nov 24, 2026.
    `maps/assets/_overview.jpg`.
 3. Ask Artem what he wants next. Don't start redoing finished work on your own.
 
+## Big change on Nov 24: new brawler style
+
+Artem dropped the old pet-style roster. `brawlers/` and `cards/` were deleted. New
+brawlers are being designed to match the map: original human characters in the style of
+his reference (pill-shaped body, tiny stick legs, floating round hands with no arms, big
+hair or hat covering the eyes, simple outfit, thick dark brown outline, flat colors, soft
+oval shadow), each with a unique accessory and a gun, knife or other weapon. Everything
+below about the old 11 brawlers (animations, weapons, effects, design laws) describes the
+OLD roster; ask Artem before reusing or deleting it.
+
 ## The project
 
 Art for Artem's own mobile game: a 9:16 PvP brawler where players draft brawlers from
@@ -35,11 +45,9 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 
 ## What already exists (all done, don't redo)
 
-- `brawlers/` - reference art for the 11 brawlers: Beam, Dough, Soot, Honey, Nana, Capy,
-  Pango, Bill, Tardi, Octo, Mossy. Peep, Dragon, Spooky and Axo were removed on Artem's
-  request (Nov 24) - don't add them back.
-- `cards/` - `<Name>_card.png` for all 11: transparent, arch-shaped gold-rim pick card
-  with a name ribbon and a count badge.
+- `brawlers/` and `cards/` - deleted Nov 24 (old roster; new style coming). The old pick
+  card format was a transparent, arch-shaped gold-rim card with a name ribbon and a count
+  badge.
 - `animations/<Name>/` - for all 11: `<Name>_sheet_right.png` and `_sheet_left.png`
   (transparent, 3 rows x 4 frames, uniform cells: row 1 walk, row 2 run, row 3 attack),
   GIFs for walk / run / attack in both directions, and `<Name>_preview.gif`.

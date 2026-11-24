@@ -4,8 +4,7 @@ Art assets for the brawler game.
 
 ## Folders
 
-- `brawlers/` - character cards (one PNG per brawler, name on the card)
-- `cards/` - draft pick cards (transparent PNG, one per brawler, with the count badge)
+- `brawlers/`, `cards/` - removed on Nov 24: the brawlers are being redesigned in a new style (see `HANDOFF.md`)
 - `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
 - `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `maps/assets/<group>/` - the map's objects as separate transparent PNGs, in groups `buildings`, `nature` and `structures`
@@ -16,25 +15,9 @@ Art assets for the brawler game.
 
 ## Brawlers
 
-| Brawler | What it is | Role |
-| --- | --- | --- |
-| Beam | lighthouse keeper | long-range light beam |
-| Dough | baker with a rolling pin | close-range |
-| Soot | chimney sweep | fast, sneaky |
-| Honey | beekeeper | long-range bees |
-| Nana | grandma with a slipper | medium-range thrower |
-| Capy | capybara | calm tank |
-| Pango | pangolin | armored roller |
-| Bill | shoebill | stare stun |
-| Tardi | tardigrade | tank |
-| Octo | octopus | ink squirt |
-| Mossy | garden snail | healer |
-
-![All brawlers](brawlers/_overview.png)
-
-## Pick cards
-
-![All pick cards](cards/_overview.jpg)
+The old pet-style roster (Beam, Dough, Soot, Honey, Nana, Capy, Pango, Bill, Tardi, Octo, Mossy)
+was removed from `brawlers/` and `cards/` on Nov 24. A new roster in the map's style is being
+designed. The old animations and weapons below are still in the repo for now.
 
 ## Animations
 
@@ -114,5 +97,3 @@ Castle Island: the castle base on the island is where brawlers spawn, four gates
 - Minimal: one simple blob body, dot eyes, no small details.
 - 3 colors per brawler plus the dark outline.
 - 3/4 side view facing right (mirror the image for left).
-
-Note: the `brawlers/` PNGs are screen captures (about 507x681); 
