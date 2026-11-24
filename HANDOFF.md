@@ -44,9 +44,12 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 - `weapons/` - one toy blaster per brawler, skinned in that brawler's colors (side view, barrel
   right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`. `weapons/bullets/` has each
   gun's projectile. `effects/weapons/` has each gun's hit effect (3 frames).
-- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (rows: walk with
-  gun, run with gun, shoot), GIFs, and `<Name>_armed_preview.gif`. The guns were attached in code
-  with `tools/attach_gun.py` (per-brawler size and position in its `CFG` table), not redrawn.
+- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (row 1 walk with
+  the gun, row 2 shoot), GIFs, and `<Name>_armed_preview.gif`. They were redrawn in Gemini, two
+  brawlers per image (4 rows x 4 frames: A walk, A shoot, B walk, B shoot; attach both brawler cards
+  and both gun PNGs), then cut with `tools/build_armed.py`. Artem rejected guns pasted on in code
+  ("looks cheap") - the brawler must really grip a small gun with both hands. Capy and Tardi carry
+  theirs on a strapped saddle on the back.
 - `stats/weapons.json` - starting balance numbers (about 100 damage per second each) and asset paths.
 - `tools/` - the Python scripts that cut the raw Gemini images (see below).
 
@@ -77,8 +80,8 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## Known small flaws (fix only if Artem asks)
 
 - The last `heal_sparkles` frame is greyish; tiny dust balls keep a faint pink rim.
-- Guns are pasted over the old frames, so Beam still carries his lantern, Dough his rolling pin
-  and Soot his brush next to their guns. Redrawing those three in Gemini would look cleaner.
+- In the armed sheets Honey's honey-dipper stock disappears in some shoot frames, and the shoot
+  frames of Capy are slightly bigger than his walk frames.
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
 

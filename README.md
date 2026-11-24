@@ -67,10 +67,10 @@ Bullets and their hit effects (hit effects are in `effects/weapons/`):
 ![Bullets and hits](weapons/bullets/_overview.jpg)
 
 Armed animations are in `animations/<Name>/`: `<Name>_armed_sheet_right.png` and `_left.png`
-(3 rows x 4 frames: walk with gun, run with gun, shoot with recoil and muzzle flash; the cells are
-wider than the unarmed sheets), GIFs for each row, and `<Name>_armed_preview.gif` (shot, bullet, hit).
-The guns are attached with `tools/attach_gun.py`; change a gun's size or position in its `CFG` table
-and run it again.
+(2 rows x 4 frames: row 1 walk with the gun, row 2 shoot: aim, fire with muzzle flash, recoil, back to aim),
+GIFs for walk, run (the walk frames played faster) and shoot, and `<Name>_armed_preview.gif` (shot, bullet, hit).
+The brawlers were redrawn holding their guns in both hands. Capy and Tardi walk on four legs, so their
+guns are strapped on their backs.
 
 ![Armed brawlers](animations/_armed_overview.jpg)
 
