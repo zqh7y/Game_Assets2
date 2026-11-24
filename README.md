@@ -34,6 +34,12 @@ Art assets for the brawler game.
 
 ![All pick cards](cards/_overview.jpg)
 
+## Animations
+
+Every brawler has walk, run and attack rows. Nana only holds her slipper in the attack row.
+
+![All animation sheets](animations/_overview.jpg)
+
 ## Effects
 
 | Group | Effects |
