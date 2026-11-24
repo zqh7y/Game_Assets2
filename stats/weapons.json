@@ -170,24 +170,6 @@
         "muzzle_tint": "#F28C28",
         "armed_sheet": "animations/Capy/Capy_armed_sheet_right.png"
       }
-    },
-    "Axo": {
-      "weapon": "Bubble Blaster",
-      "style": "support",
-      "damage": 15,
-      "fire_interval": 0.5,
-      "dps": 30,
-      "range": 5.0,
-      "bullet_speed": 10,
-      "heal_allies_per_shot": 25,
-      "assets": {
-        "gun": "weapons/axo_bubble_blaster.png",
-        "bullet": "weapons/bullets/axo_bullet.png",
-        "hit": "effects/weapons/axo_hit_sheet.png",
-        "muzzle_flash": "weapons/muzzle_flash.png",
-        "muzzle_tint": "#F0629A",
-        "armed_sheet": "animations/Axo/Axo_armed_sheet_right.png"
-      }
     }
   }
 }

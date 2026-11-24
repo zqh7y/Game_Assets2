@@ -12,9 +12,9 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 
 ## What already exists (all done, don't redo)
 
-- `brawlers/` - reference art for Beam, Dough, Soot, Honey, Nana, Capy, Axo, Pango,
+- `brawlers/` - reference art for Beam, Dough, Soot, Honey, Nana, Capy, Pango,
   Bill, Tardi, Octo.
-  Peep, Dragon and Spooky (Artem's older originals) were removed from the repo on Artem's request (Nov 24) - don't add them back.
+  Peep, Dragon and Spooky (Artem's older originals) and Axo were removed from the repo on Artem's request (Nov 24) - don't add them back.
 - `cards/` - `<Name>_card.png` for all 11: transparent, arch-shaped gold-rim pick card
   with a name ribbon and a count badge.
 - `animations/<Name>/` - for all 11: `<Name>_sheet_right.png` and `_sheet_left.png`
@@ -71,7 +71,6 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 | Honey | beekeeper | long-range bees | `honey_bees` |
 | Nana | grandma with a slipper | thrower | `nana_slipper` |
 | Capy | capybara | calm tank | `capy_bonk` |
-| Axo | axolotl | healer | `axo_heart` |
 | Pango | pangolin | armored roller | `pango_dust` |
 | Bill | shoebill | stare stun | `bill_shockwave` |
 | Tardi | tardigrade | tank | `tardi_bubble` |

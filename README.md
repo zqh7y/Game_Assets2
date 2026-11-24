@@ -24,7 +24,6 @@ Art assets for the brawler game.
 | Honey | beekeeper | long-range bees |
 | Nana | grandma with a slipper | medium-range thrower |
 | Capy | capybara | calm tank |
-| Axo | axolotl | healer |
 | Pango | pangolin | armored roller |
 | Bill | shoebill | stare stun |
 | Tardi | tardigrade | tank |
@@ -58,7 +57,6 @@ Every brawler has its own weapon, skinned in its own colors: 8 guns and 3 melee 
 | Nana | Slipper Launcher | slipper | mid range, small splash |
 | Dough | Rolling-Pin Bat | melee swing | melee, big hits, knockback |
 | Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
-| Axo | Bubble Blaster | heart bubble | support, heals teammates |
 
 ![All weapons](weapons/_overview.jpg)
 
@@ -82,8 +80,8 @@ their swing arcs are `effects/weapons/<name>_swing.png`.
 | `movement/` | `walk_dust`, `run_dust`, `landing_puff`, `speed_lines` |
 | `hit/` | `hit_spark`, `impact_burst`, `slash_arc`, `critical_hit` |
 | `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
-| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink` |
-| `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
+| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink` |
+| `support/` | `heal_sparkles`, `heal_heart`, `shield_up`, `spawn_poof`, `level_up` |
 | `weapons/` | `<brawler>_hit` for all 11 weapons (3 frames: small, full, fading), `<name>_swing` arcs for the 3 melee weapons |
 | `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
 
