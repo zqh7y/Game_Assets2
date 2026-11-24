@@ -95,6 +95,10 @@ into the main folders.
   for edits that keep everything else the same.
 - `maps/assets/<group>/` - 38 map objects as transparent PNGs. Not made yet: ground pieces
   (road, water, sand, cobblestone), hay bales, mooring posts, statue, lookout platform.
+- `game/` - the game prototype (TypeScript + Phaser 4 + Vite): the scrollable, zoomable
+  map with the 12 brawlers standing near the castle; tap one to play its attack row. It reads
+  the sheets straight from `animations/`. See `game/README.md`. Artem tells you what to fix
+  next; don't extend it unasked.
 - No pick cards (Artem said not to make them).
 
 ## Known small flaws (fix only if Artem asks)
@@ -192,4 +196,3 @@ Always open the `_check_` image before copying anything into the repo. Don't com
 - A real run row instead of the sped-up walk.
 - New-style spawn and defeat effects.
 - The missing map pieces listed above.
-- Start the game prototype itself using these assets.

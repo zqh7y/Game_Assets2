@@ -12,6 +12,7 @@ Art assets for the brawler game.
 - `stats/brawlers.json` - every brawler's role, weapon, starting numbers and asset paths
 - `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `maps/assets/<group>/` - the map's objects as separate transparent PNGs, in groups `buildings`, `nature` and `structures`
+- `game/` - the game prototype (TypeScript + Phaser 4): the scrollable map with the 12 brawlers near the castle. See `game/README.md`
 - `tools/` - the Python scripts that cut raw Gemini images into these files
 - `old_roster/` - the old pet-style brawlers' animations, weapons and effects (replaced on Nov 24)
 
