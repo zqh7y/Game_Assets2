@@ -29,7 +29,6 @@ Art assets for the brawler game.
 | Bill | shoebill | stare stun |
 | Tardi | tardigrade | tank |
 | Octo | octopus | ink squirt |
-| Dragon | baby dragon | fire puff |
 
 ![All brawlers](brawlers/_overview.png)
 
@@ -58,7 +57,6 @@ Every brawler has its own gun, skinned in its own colors.
 | Octo | Ink Soaker | ink blob | mid range, slows |
 | Nana | Slipper Launcher | slipper | mid range, small splash |
 | Dough | Rolling-Pin Shotgun | dough balls | short range, strong up close |
-| Dragon | Chili Flamethrower | fireball | short range, burn |
 | Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
 | Axo | Bubble Blaster | heart bubble | support, heals teammates |
 
@@ -83,9 +81,9 @@ and run it again.
 | `movement/` | `walk_dust`, `run_dust`, `landing_puff`, `speed_lines` |
 | `hit/` | `hit_spark`, `impact_burst`, `slash_arc`, `critical_hit` |
 | `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
-| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink`, `dragon_fire` |
+| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink` |
 | `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
-| `weapons/` | `<brawler>_hit` for all 12 guns (3 frames: small, full, fading) |
+| `weapons/` | `<brawler>_hit` for all 11 guns (3 frames: small, full, fading) |
 | `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
 
 Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
@@ -116,4 +114,4 @@ Castle Island: the castle base on the island is where brawlers spawn, four gates
 - 3 colors per brawler plus the dark outline.
 - 3/4 side view facing right (mirror the image for left).
 
-Note: the `brawlers/` PNGs are screen captures (about 507x681); Dragon is not in `brawlers/` (he uses the original art from the game).
+Note: the `brawlers/` PNGs are screen captures (about 507x681); 

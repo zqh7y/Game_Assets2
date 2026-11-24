@@ -161,25 +161,6 @@
         "armed_sheet": "animations/Dough/Dough_armed_sheet_right.png"
       }
     },
-    "Dragon": {
-      "weapon": "Chili Flamethrower",
-      "style": "short",
-      "damage": 12,
-      "fire_interval": 0.1,
-      "dps": 120,
-      "range": 2.8,
-      "bullet_speed": 10,
-      "burn_dps": 10,
-      "burn_seconds": 2.0,
-      "assets": {
-        "gun": "weapons/dragon_chili_flamethrower.png",
-        "bullet": "weapons/bullets/dragon_bullet.png",
-        "hit": "effects/weapons/dragon_hit_sheet.png",
-        "muzzle_flash": "weapons/muzzle_flash.png",
-        "muzzle_tint": "#FF8A1F",
-        "armed_sheet": "animations/Dragon/Dragon_armed_sheet_right.png"
-      }
-    },
     "Capy": {
       "weapon": "Citrus Minigun",
       "style": "heavy",

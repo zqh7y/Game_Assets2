@@ -13,16 +13,16 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## What already exists (all done, don't redo)
 
 - `brawlers/` - reference art for Beam, Dough, Soot, Honey, Nana, Capy, Axo, Pango,
-  Bill, Tardi, Octo. Dragon is one of Artem's older originals and is not in this folder.
-  Peep and Spooky were removed from the repo on Artem's request (Nov 24) - don't add them back.
-- `cards/` - `<Name>_card.png` for all 12: transparent, arch-shaped gold-rim pick card
+  Bill, Tardi, Octo.
+  Peep, Dragon and Spooky (Artem's older originals) were removed from the repo on Artem's request (Nov 24) - don't add them back.
+- `cards/` - `<Name>_card.png` for all 11: transparent, arch-shaped gold-rim pick card
   with a name ribbon and a count badge.
-- `animations/<Name>/` - for all 12: `<Name>_sheet_right.png` and `_sheet_left.png`
+- `animations/<Name>/` - for all 11: `<Name>_sheet_right.png` and `_sheet_left.png`
   (transparent, 3 rows x 4 frames, uniform cells: row 1 walk, row 2 run, row 3 attack),
   GIFs for walk / run / attack in both directions, and `<Name>_preview.gif`.
   Timing used in the GIFs: walk 140 ms per frame, run 90 ms, attack 150 ms with the
   last frame held 450 ms.
-- `effects/<group>/` - 32 effects without characters. Per effect: `<name>_sheet.png`
+- `effects/<group>/` - 31 effects without characters. Per effect: `<name>_sheet.png`
   (4-frame strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png`,
   `<name>.gif`. Groups: `movement`, `hit`, `defeat`, `attacks`, `support`, `spawn`
   (POOF bursts for when a brawler appears: white, blue team, red team, ground dust).
@@ -65,7 +65,6 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 | Bill | shoebill | stare stun | `bill_shockwave` |
 | Tardi | tardigrade | tank | `tardi_bubble` |
 | Octo | octopus | ink squirt | `octo_ink` |
-| Dragon | baby dragon | fire puff | `dragon_fire` |
 
 ## Artem's design laws (never break these)
 
