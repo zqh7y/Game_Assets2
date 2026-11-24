@@ -26,9 +26,7 @@ Art assets for the brawler game.
 | Bill | shoebill | stare stun |
 | Tardi | tardigrade | tank |
 | Octo | octopus | ink squirt |
-| Peep | chick | swarm pecker |
 | Dragon | baby dragon | fire puff |
-| Spooky | hooded ghost | boo scare |
 
 ![All brawlers](brawlers/_overview.png)
 
@@ -81,4 +79,4 @@ Castle Island: the castle base on the island is where brawlers spawn, four gates
 - 3 colors per brawler plus the dark outline.
 - 3/4 side view facing right (mirror the image for left).
 
-Note: the `brawlers/` PNGs are screen captures (about 507x681); Peep, Dragon and Spooky are not in `brawlers/` (they use the original art from the game).
+Note: the `brawlers/` PNGs are screen captures (about 507x681); Dragon is not in `brawlers/` (he uses the original art from the game).

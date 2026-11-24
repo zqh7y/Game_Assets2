@@ -13,11 +13,11 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## What already exists (all done, don't redo)
 
 - `brawlers/` - reference art for Beam, Dough, Soot, Honey, Nana, Capy, Axo, Pango,
-  Bill, Tardi, Octo. Peep, Dragon and Spooky are Artem's older originals and are not
-  in this folder.
-- `cards/` - `<Name>_card.png` for all 14: transparent, arch-shaped gold-rim pick card
+  Bill, Tardi, Octo. Dragon is one of Artem's older originals and is not in this folder.
+  Peep and Spooky were removed from the repo on Artem's request (Nov 24) - don't add them back.
+- `cards/` - `<Name>_card.png` for all 12: transparent, arch-shaped gold-rim pick card
   with a name ribbon and a count badge.
-- `animations/<Name>/` - for all 14: `<Name>_sheet_right.png` and `_sheet_left.png`
+- `animations/<Name>/` - for all 12: `<Name>_sheet_right.png` and `_sheet_left.png`
   (transparent, 3 rows x 4 frames, uniform cells: row 1 walk, row 2 run, row 3 attack),
   GIFs for walk / run / attack in both directions, and `<Name>_preview.gif`.
   Timing used in the GIFs: walk 140 ms per frame, run 90 ms, attack 150 ms with the
@@ -59,8 +59,6 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 | Tardi | tardigrade | tank | `tardi_bubble` |
 | Octo | octopus | ink squirt | `octo_ink` |
 | Dragon | baby dragon | fire puff | `dragon_fire` |
-| Peep | chick | swarm pecker | none yet |
-| Spooky | hooded ghost | boo scare | none yet |
 
 ## Artem's design laws (never break these)
 
@@ -72,8 +70,6 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 
 ## Known small flaws (fix only if Artem asks)
 
-- Peep and Spooky have no attack effect of their own.
-- Peep's run dust is pinkish; one Spooky float frame has paw hands.
 - The last `heal_sparkles` frame is greyish; tiny dust balls keep a faint pink rim.
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
