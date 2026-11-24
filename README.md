@@ -4,75 +4,56 @@ Art assets for the brawler game.
 
 ## Folders
 
-- `brawlers/`, `cards/` - removed on Nov 24: the brawlers are being redesigned in a new style (see `HANDOFF.md`)
-- `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
+- `brawlers/` - the 12 brawlers, one transparent PNG each, plus `_overview.jpg`
+- `animations/<Name>/` - each brawler's sprite sheets: `<Name>_sheet_right.png` and mirrored `_left.png` (transparent, 2 rows x 4 frames: row 1 walk, row 2 attack), GIFs `<Name>_walk_*`, `<Name>_run_*` (the walk played faster), `<Name>_shoot_*` (`<Name>_attack_*` for melee) and `<Name>_preview.gif`
+- `weapons/` - the 12 plain weapons (side view, pointing right) and `weapons/projectiles/` (flying right)
+- `effects/combat/` - muzzle flash, bullet hit, explosion, melee swing, heal (4 frames each)
+- `effects/<group>/` - older generic effects: `movement`, `hit`, `defeat`, `support`, `spawn`
+- `stats/brawlers.json` - every brawler's role, weapon, starting numbers and asset paths
 - `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `maps/assets/<group>/` - the map's objects as separate transparent PNGs, in groups `buildings`, `nature` and `structures`
-- `weapons/` - one weapon per brawler: 8 toy blasters and 3 melee weapons (transparent PNG, side view, barrel pointing right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`
-- `weapons/bullets/` - `<brawler>_bullet.png`, the projectile each gun shoots (flies to the right; melee brawlers have none)
-- `stats/weapons.json` - starting balance numbers and the asset paths for every weapon
-- `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
+- `tools/` - the Python scripts that cut raw Gemini images into these files
+- `old_roster/` - the old pet-style brawlers' animations, weapons and effects (replaced on Nov 24)
+
+Effect files: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` and `<name>.gif`.
 
 ## Brawlers
 
-The old pet-style roster (Beam, Dough, Soot, Honey, Nana, Capy, Pango, Bill, Tardi, Octo, Mossy)
-was removed from `brawlers/` and `cards/` on Nov 24. A new roster in the map's style is being
-designed. The old animations and weapons below are still in the repo for now.
+Super minimal style that matches the map: a short bean body, a hat or hair over the eyes, an empty face strip,
+stick legs and two floating round hands that hold a plain real-world weapon.
+
+| Brawler | Who | Weapon | Role |
+| --- | --- | --- | --- |
+| Rook | castle guard | AK-47 | all-rounder |
+| Bram | blacksmith | sledgehammer | tank, melee |
+| Hood | forest outlaw | sniper rifle | sniper |
+| Barley | farmer | double-barrel shotgun | close range |
+| Wick | sailor | revolver | mid range, big hits |
+| Ash | rogue | combat knife | assassin, melee |
+| Sage | village healer | pistol (heals teammates) | healer |
+| Chop | lumberjack | axe | bruiser, melee |
+| Tusk | mercenary | minigun | heavy |
+| Pip | castle messenger | Uzi | fast flanker |
+| Fuse | bombardier | RPG | area damage |
+| Jinx | castle jester | grenade launcher | thrower |
+
+![All brawlers](brawlers/_overview.jpg)
 
 ## Animations
 
-Every brawler has walk, run and attack rows. Nana only holds her slipper in the attack row.
+Row 1 is the walk, row 2 the attack (shoot, or a swing for Bram, Ash and Chop). Everyone faces right; use the `_left` sheet for left.
 
 ![All animation sheets](animations/_overview.jpg)
 
-## Weapons
+## Weapons and projectiles
 
-Every brawler has its own weapon, skinned in its own colors: 8 guns and 3 melee weapons (bat, knife, fish club).
+![Weapons and projectiles](weapons/_overview.jpg)
 
-| Brawler | Weapon | Shoots | Style |
-| --- | --- | --- | --- |
-| Beam | Lighthouse Sniper | light bolt | long range, slow, big hits |
-| Bill | Frozen Fish Club | melee smash | melee, short stun |
-| Pango | Pinecone Bazooka | pinecone rocket | long range, splash |
-| Honey | Honeycomb AK | bee bullet | mid range, steady |
-| Soot | Sooty Knife | melee slash | melee, very fast |
-| Tardi | Ray Gun | plasma ring | mid range, steady |
-| Octo | Ink Soaker | ink blob | mid range, slows |
-| Nana | Slipper Launcher | slipper | mid range, small splash |
-| Dough | Rolling-Pin Bat | melee swing | melee, big hits, knockback |
-| Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
-| Mossy | Dew-Drop Sprayer | dew drop | support, heals teammates |
+## Combat effects
 
-![All weapons](weapons/_overview.jpg)
+![Combat effects](effects/combat/_overview.jpg)
 
-Bullets and their hit effects (hit effects are in `effects/weapons/`):
-
-![Bullets and hits](weapons/bullets/_overview.jpg)
-
-Armed animations are in `animations/<Name>/`: `<Name>_armed_sheet_right.png` and `_left.png`
-(2 rows x 4 frames: row 1 walk with the weapon, row 2 shoot or melee attack), GIFs for walk, run (the walk
-frames played faster) and shoot / attack, and `<Name>_armed_preview.gif`.
-The weapon is held low in both fists so the face is always visible. Capy and Tardi stand upright in their
-armed sheets so they can hold their guns. Dough, Soot and Bill are melee: their second row is a swing, and
-their swing arcs are `effects/weapons/<name>_swing.png`.
-
-![Armed brawlers](animations/_armed_overview.jpg)
-
-## Effects
-
-| Group | Effects |
-| --- | --- |
-| `movement/` | `walk_dust`, `run_dust`, `landing_puff`, `speed_lines` |
-| `hit/` | `hit_spark`, `impact_burst`, `slash_arc`, `critical_hit` |
-| `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
-| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink` |
-| `support/` | `heal_sparkles`, `heal_heart`, `shield_up`, `spawn_poof`, `level_up` |
-| `weapons/` | `<brawler>_hit` for all 11 weapons (3 frames: small, full, fading), `<name>_swing` arcs for the 3 melee weapons |
-| `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
-
-Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
-
-![All effects](effects/_overview.jpg)
+Each frame is centered in its cell, so travel is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
 
 ## Map
 
@@ -94,6 +75,7 @@ Castle Island: the castle base on the island is where brawlers spawn, four gates
 
 ## Design laws
 
-- Minimal: one simple blob body, dot eyes, no small details.
-- 3 colors per brawler plus the dark outline.
-- 3/4 side view facing right (mirror the image for left).
+- Super minimal, like the reference cavemen: bean body, no eyes or mouth (hat or hair hides the eyes), stick legs, floating round hands, no small details.
+- Thick dark brown outline, flat colors, matches the map.
+- Seen a little from above, facing right (mirror for left).
+- Weapons are plain real-world weapons with no skins, held low in the floating hands, never covering the face.
