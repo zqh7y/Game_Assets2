@@ -34,6 +34,12 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   so the big file is a 4x Real-ESRGAN (anime_6B) upscale; small details are a bit soft.
   To change the map, attach the 1024 file in a new Gemini chat and ask for edits that
   keep everything else the same.
+- `maps/assets/<group>/` - 38 map objects as separate transparent PNGs (`buildings`,
+  `nature`, `structures`), plus `_overview.jpg`. Made by attaching the 1024 map in Gemini
+  and asking for a 4x3 sprite sheet on magenta "redrawn in exactly the same style", then
+  a 4x upscale and `tools/cut_assets.py`. They are redraws, not cut-outs of the map.
+  Not made yet: ground pieces (road, water, sand, cobblestone), hay bales, mooring
+  posts, statue, lookout platform.
 - `tools/` - the Python scripts that cut the raw Gemini images (see below).
 
 ## Brawlers and roles
@@ -113,6 +119,12 @@ a magenta or green background and detect the key color from the top-left corner.
   `0,1,2`; use `-` for the default). `cleanwalk` drops stray specks from the walk row.
 - `tools/build_fx.py SRC.jpg OUTDIR name1,name2,name3,name4` - slices an effects sheet,
   one effect per row, and writes the strips, frames, GIFs and a `_check_` image.
+
+- `tools/cut_assets.py SHEET.png OUTDIR [name1,name2,...] [merge_px]` - cuts a magenta
+  sprite sheet of loose objects into one transparent PNG per object. Run it without names
+  first: it prints the objects it found in reading order and writes a `_check_` image.
+  `merge_px` (default 15) is how far apart parts may be and still count as one object;
+  lower it (9-13) when two neighbours get merged.
 
 Always open the `_check_` image before copying anything into the repo. Don't commit
 `_check_` files.
