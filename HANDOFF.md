@@ -13,7 +13,7 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## What already exists (all done, don't redo)
 
 - `brawlers/` - reference art for Beam, Dough, Soot, Honey, Nana, Capy, Pango,
-  Bill, Tardi, Octo.
+  Bill, Tardi, Octo, Mossy.
   Peep, Dragon and Spooky (Artem's older originals) and Axo were removed from the repo on Artem's request (Nov 24) - don't add them back.
 - `cards/` - `<Name>_card.png` for all 11: transparent, arch-shaped gold-rim pick card
   with a name ribbon and a count badge.
@@ -75,6 +75,7 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 | Bill | shoebill | stare stun | `bill_shockwave` |
 | Tardi | tardigrade | tank | `tardi_bubble` |
 | Octo | octopus | ink squirt | `octo_ink` |
+| Mossy | garden snail | healer (replaced Axo) | none yet (use `support/heal_heart`) |
 
 ## Artem's design laws (never break these)
 
@@ -90,6 +91,7 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 - Dough's armed sheet reuses his old rolling-pin walk and swing frames, so his bat there is a plain
   rolling pin without the cloth grip of the weapon icon.
 - Octo's gun is drawn very small in its armed sheet.
+- Mossy's yellow shell flower is on his card but missing from most of his animation frames.
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
 

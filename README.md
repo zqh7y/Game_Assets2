@@ -28,6 +28,7 @@ Art assets for the brawler game.
 | Bill | shoebill | stare stun |
 | Tardi | tardigrade | tank |
 | Octo | octopus | ink squirt |
+| Mossy | garden snail | healer |
 
 ![All brawlers](brawlers/_overview.png)
 
@@ -57,6 +58,7 @@ Every brawler has its own weapon, skinned in its own colors: 8 guns and 3 melee 
 | Nana | Slipper Launcher | slipper | mid range, small splash |
 | Dough | Rolling-Pin Bat | melee swing | melee, big hits, knockback |
 | Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
+| Mossy | Dew-Drop Sprayer | dew drop | support, heals teammates |
 
 ![All weapons](weapons/_overview.jpg)
 

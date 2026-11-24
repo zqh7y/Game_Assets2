@@ -170,6 +170,23 @@
         "muzzle_tint": "#F28C28",
         "armed_sheet": "animations/Capy/Capy_armed_sheet_right.png"
       }
+    },
+    "Mossy": {
+      "weapon": "Dew-Drop Sprayer",
+      "style": "support",
+      "damage": 15,
+      "fire_interval": 0.5,
+      "dps": 30,
+      "range": 5.0,
+      "bullet_speed": 10,
+      "heal_allies_per_shot": 25,
+      "assets": {
+        "gun": "weapons/mossy_dewdrop_sprayer.png",
+        "bullet": "weapons/bullets/mossy_bullet.png",
+        "hit": "effects/weapons/mossy_hit_sheet.png",
+        "muzzle_flash": "effects/weapons/mossy_muzzle.png",
+        "armed_sheet": "animations/Mossy/Mossy_armed_sheet_right.png"
+      }
     }
   }
 }
