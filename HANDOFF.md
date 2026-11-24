@@ -41,6 +41,13 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   a 4x upscale and `tools/cut_assets.py`. They are redraws, not cut-outs of the map.
   Not made yet: ground pieces (road, water, sand, cobblestone), hay bales, mooring
   posts, statue, lookout platform.
+- `weapons/` - one toy blaster per brawler, skinned in that brawler's colors (side view, barrel
+  right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`. `weapons/bullets/` has each
+  gun's projectile. `effects/weapons/` has each gun's hit effect (3 frames).
+- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (rows: walk with
+  gun, run with gun, shoot), GIFs, and `<Name>_armed_preview.gif`. The guns were attached in code
+  with `tools/attach_gun.py` (per-brawler size and position in its `CFG` table), not redrawn.
+- `stats/weapons.json` - starting balance numbers (about 100 damage per second each) and asset paths.
 - `tools/` - the Python scripts that cut the raw Gemini images (see below).
 
 ## Brawlers and roles
@@ -71,6 +78,8 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## Known small flaws (fix only if Artem asks)
 
 - The last `heal_sparkles` frame is greyish; tiny dust balls keep a faint pink rim.
+- Guns are pasted over the old frames, so Beam still carries his lantern, Dough his rolling pin
+  and Soot his brush next to their guns. Redrawing those three in Gemini would look cleaner.
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
 

@@ -9,6 +9,9 @@ Art assets for the brawler game.
 - `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
 - `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `maps/assets/<group>/` - the map's objects as separate transparent PNGs, in groups `buildings`, `nature` and `structures`
+- `weapons/` - one toy blaster per brawler (transparent PNG, side view, barrel pointing right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`
+- `weapons/bullets/` - `<brawler>_bullet.png`, the projectile each gun shoots (flies to the right)
+- `stats/weapons.json` - starting balance numbers and the asset paths for every weapon
 - `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
 
 ## Brawlers
@@ -40,6 +43,39 @@ Every brawler has walk, run and attack rows. Nana only holds her slipper in the 
 
 ![All animation sheets](animations/_overview.jpg)
 
+## Weapons
+
+Every brawler has its own gun, skinned in its own colors.
+
+| Brawler | Weapon | Shoots | Style |
+| --- | --- | --- | --- |
+| Beam | Lighthouse Sniper | light bolt | long range, slow, big hits |
+| Bill | Fish Harpoon Gun | fish harpoon | long range, short stun |
+| Pango | Pinecone Bazooka | pinecone rocket | long range, splash |
+| Honey | Honeycomb AK | bee bullet | mid range, steady |
+| Soot | Chimney SMG | soot pellet | mid range, fast |
+| Tardi | Ray Gun | plasma ring | mid range, steady |
+| Octo | Ink Soaker | ink blob | mid range, slows |
+| Nana | Slipper Launcher | slipper | mid range, small splash |
+| Dough | Rolling-Pin Shotgun | dough balls | short range, strong up close |
+| Dragon | Chili Flamethrower | fireball | short range, burn |
+| Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
+| Axo | Bubble Blaster | heart bubble | support, heals teammates |
+
+![All weapons](weapons/_overview.jpg)
+
+Bullets and their hit effects (hit effects are in `effects/weapons/`):
+
+![Bullets and hits](weapons/bullets/_overview.jpg)
+
+Armed animations are in `animations/<Name>/`: `<Name>_armed_sheet_right.png` and `_left.png`
+(3 rows x 4 frames: walk with gun, run with gun, shoot with recoil and muzzle flash; the cells are
+wider than the unarmed sheets), GIFs for each row, and `<Name>_armed_preview.gif` (shot, bullet, hit).
+The guns are attached with `tools/attach_gun.py`; change a gun's size or position in its `CFG` table
+and run it again.
+
+![Armed brawlers](animations/_armed_overview.jpg)
+
 ## Effects
 
 | Group | Effects |
@@ -49,6 +85,7 @@ Every brawler has walk, run and attack rows. Nana only holds her slipper in the 
 | `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
 | `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink`, `dragon_fire` |
 | `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
+| `weapons/` | `<brawler>_hit` for all 12 guns (3 frames: small, full, fading) |
 | `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
 
 Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.

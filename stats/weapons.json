@@ -1,0 +1,221 @@
+{
+  "_note": "Starting numbers for balance, meant to be tuned in playtests. Every gun is built around roughly 100 damage per second; short-range and heavy guns get about 20-25% more because they are harder to use. range and splash_radius are in tiles (1 tile = one brawler width); bullet_speed is tiles per second; fire_interval is seconds between shots.",
+  "weapons": {
+    "Beam": {
+      "weapon": "Lighthouse Sniper",
+      "style": "long",
+      "damage": 220,
+      "fire_interval": 2.2,
+      "dps": 100,
+      "range": 9.0,
+      "bullet_speed": 22,
+      "assets": {
+        "gun": "weapons/beam_lighthouse_sniper.png",
+        "bullet": "weapons/bullets/beam_bullet.png",
+        "hit": "effects/weapons/beam_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#FFD93B",
+        "armed_sheet": "animations/Beam/Beam_armed_sheet_right.png"
+      }
+    },
+    "Bill": {
+      "weapon": "Fish Harpoon Gun",
+      "style": "long",
+      "damage": 180,
+      "fire_interval": 1.8,
+      "dps": 100,
+      "range": 8.0,
+      "bullet_speed": 16,
+      "stun_seconds": 0.4,
+      "assets": {
+        "gun": "weapons/bill_harpoon_gun.png",
+        "bullet": "weapons/bullets/bill_bullet.png",
+        "hit": "effects/weapons/bill_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#BFE6FF",
+        "armed_sheet": "animations/Bill/Bill_armed_sheet_right.png"
+      }
+    },
+    "Pango": {
+      "weapon": "Pinecone Bazooka",
+      "style": "long",
+      "damage": 240,
+      "fire_interval": 2.6,
+      "dps": 92,
+      "range": 7.5,
+      "bullet_speed": 9,
+      "splash_radius": 1.2,
+      "assets": {
+        "gun": "weapons/pango_pinecone_bazooka.png",
+        "bullet": "weapons/bullets/pango_bullet.png",
+        "hit": "effects/weapons/pango_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#FF8A1F",
+        "armed_sheet": "animations/Pango/Pango_armed_sheet_right.png"
+      }
+    },
+    "Honey": {
+      "weapon": "Honeycomb AK",
+      "style": "mid",
+      "damage": 28,
+      "fire_interval": 0.28,
+      "dps": 100,
+      "range": 6.0,
+      "bullet_speed": 18,
+      "assets": {
+        "gun": "weapons/honey_honeycomb_ak.png",
+        "bullet": "weapons/bullets/honey_bullet.png",
+        "hit": "effects/weapons/honey_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#F6B93B",
+        "armed_sheet": "animations/Honey/Honey_armed_sheet_right.png"
+      }
+    },
+    "Soot": {
+      "weapon": "Chimney SMG",
+      "style": "mid",
+      "damage": 14,
+      "fire_interval": 0.14,
+      "dps": 100,
+      "range": 5.0,
+      "bullet_speed": 18,
+      "move_speed_bonus": 0.15,
+      "assets": {
+        "gun": "weapons/soot_chimney_smg.png",
+        "bullet": "weapons/bullets/soot_bullet.png",
+        "hit": "effects/weapons/soot_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#8A8A92",
+        "armed_sheet": "animations/Soot/Soot_armed_sheet_right.png"
+      }
+    },
+    "Tardi": {
+      "weapon": "Ray Gun",
+      "style": "mid",
+      "damage": 45,
+      "fire_interval": 0.45,
+      "dps": 100,
+      "range": 6.0,
+      "bullet_speed": 14,
+      "assets": {
+        "gun": "weapons/tardi_ray_gun.png",
+        "bullet": "weapons/bullets/tardi_bullet.png",
+        "hit": "effects/weapons/tardi_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#7FE8E0",
+        "armed_sheet": "animations/Tardi/Tardi_armed_sheet_right.png"
+      }
+    },
+    "Octo": {
+      "weapon": "Ink Soaker",
+      "style": "mid",
+      "damage": 30,
+      "fire_interval": 0.32,
+      "dps": 94,
+      "range": 5.5,
+      "bullet_speed": 13,
+      "slow_percent": 20,
+      "slow_seconds": 1.0,
+      "assets": {
+        "gun": "weapons/octo_ink_soaker.png",
+        "bullet": "weapons/bullets/octo_bullet.png",
+        "hit": "effects/weapons/octo_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#4A4690",
+        "armed_sheet": "animations/Octo/Octo_armed_sheet_right.png"
+      }
+    },
+    "Nana": {
+      "weapon": "Slipper Launcher",
+      "style": "mid",
+      "damage": 110,
+      "fire_interval": 1.1,
+      "dps": 100,
+      "range": 6.0,
+      "bullet_speed": 11,
+      "splash_radius": 0.8,
+      "assets": {
+        "gun": "weapons/nana_slipper_launcher.png",
+        "bullet": "weapons/bullets/nana_bullet.png",
+        "hit": "effects/weapons/nana_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#C9A7E0",
+        "armed_sheet": "animations/Nana/Nana_armed_sheet_right.png"
+      }
+    },
+    "Dough": {
+      "weapon": "Rolling-Pin Shotgun",
+      "style": "short",
+      "damage": 30,
+      "fire_interval": 1.2,
+      "dps": 125,
+      "range": 3.0,
+      "bullet_speed": 16,
+      "pellets": 5,
+      "assets": {
+        "gun": "weapons/dough_rollingpin_shotgun.png",
+        "bullet": "weapons/bullets/dough_bullet.png",
+        "hit": "effects/weapons/dough_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#FFFFFF",
+        "armed_sheet": "animations/Dough/Dough_armed_sheet_right.png"
+      }
+    },
+    "Dragon": {
+      "weapon": "Chili Flamethrower",
+      "style": "short",
+      "damage": 12,
+      "fire_interval": 0.1,
+      "dps": 120,
+      "range": 2.8,
+      "bullet_speed": 10,
+      "burn_dps": 10,
+      "burn_seconds": 2.0,
+      "assets": {
+        "gun": "weapons/dragon_chili_flamethrower.png",
+        "bullet": "weapons/bullets/dragon_bullet.png",
+        "hit": "effects/weapons/dragon_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#FF8A1F",
+        "armed_sheet": "animations/Dragon/Dragon_armed_sheet_right.png"
+      }
+    },
+    "Capy": {
+      "weapon": "Citrus Minigun",
+      "style": "heavy",
+      "damage": 10,
+      "fire_interval": 0.08,
+      "dps": 125,
+      "range": 5.5,
+      "bullet_speed": 18,
+      "spin_up_seconds": 1.0,
+      "move_speed_while_firing": -0.25,
+      "assets": {
+        "gun": "weapons/capy_citrus_minigun.png",
+        "bullet": "weapons/bullets/capy_bullet.png",
+        "hit": "effects/weapons/capy_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#F28C28",
+        "armed_sheet": "animations/Capy/Capy_armed_sheet_right.png"
+      }
+    },
+    "Axo": {
+      "weapon": "Bubble Blaster",
+      "style": "support",
+      "damage": 15,
+      "fire_interval": 0.5,
+      "dps": 30,
+      "range": 5.0,
+      "bullet_speed": 10,
+      "heal_allies_per_shot": 25,
+      "assets": {
+        "gun": "weapons/axo_bubble_blaster.png",
+        "bullet": "weapons/bullets/axo_bullet.png",
+        "hit": "effects/weapons/axo_hit_sheet.png",
+        "muzzle_flash": "weapons/muzzle_flash.png",
+        "muzzle_tint": "#F0629A",
+        "armed_sheet": "animations/Axo/Axo_armed_sheet_right.png"
+      }
+    }
+  }
+}
