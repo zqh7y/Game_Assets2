@@ -22,9 +22,10 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   GIFs for walk / run / attack in both directions, and `<Name>_preview.gif`.
   Timing used in the GIFs: walk 140 ms per frame, run 90 ms, attack 150 ms with the
   last frame held 450 ms.
-- `effects/<group>/` - 28 effects without characters. Per effect: `<name>_sheet.png`
+- `effects/<group>/` - 32 effects without characters. Per effect: `<name>_sheet.png`
   (4-frame strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png`,
-  `<name>.gif`. Groups: `movement`, `hit`, `defeat`, `attacks`, `support`.
+  `<name>.gif`. Groups: `movement`, `hit`, `defeat`, `attacks`, `support`, `spawn`
+  (POOF bursts for when a brawler appears: white, blue team, red team, ground dust).
   Frames are centered in their cell, so travel (slipper flying, soul rising) is done
   by moving the sprite in code. Effects that point somewhere point right.
 - `maps/` - `castle_island_map.png` (4096x4096, the scrolling battle map) and

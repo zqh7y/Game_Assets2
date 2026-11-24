@@ -51,6 +51,7 @@ Every brawler has walk, run and attack rows. Nana only holds her slipper in the 
 | `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
 | `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink`, `dragon_fire` |
 | `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
+| `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
 
 Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
 
