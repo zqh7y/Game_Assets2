@@ -10,7 +10,7 @@ export const MAP_TILE_SIZE = 2048;
 export const MAP_TILES_PER_SIDE = MAP_SIZE / MAP_TILE_SIZE;
 
 /** Where the camera starts: the castle courtyard. */
-export const START_VIEW = { x: 2070, y: 1990 };
+export const START_VIEW = { x: 2090, y: 1990 };
 
 export const ZOOM = {
   /** 1.5 shows about 720x1280 world pixels. */
@@ -29,10 +29,12 @@ export const DRAG = {
   minSpeed: 0.02,
 };
 
-/** Frame timings from the art handoff (armed sheets: row 1 walk, row 2 shoot). */
+/** One scale for every brawler sheet: their bodies are 186-223 px tall, so about 74-89 world px on the map. */
+export const BRAWLER_SCALE = 0.4;
+
+/** Attack row timing, the same as the shoot / attack GIFs (tools/build_armed.py). */
 export const ANIM = {
-  attackFrameMs: 150,
-  attackLastFrameHoldMs: 450,
+  attackFramesMs: [220, 80, 120, 260],
 };
 
 export const IDLE_BOB = {

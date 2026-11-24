@@ -1,9 +1,9 @@
 import Phaser from 'phaser';
-import { ARMED_SHEET, type BrawlerSpawn } from './brawlers';
-import { ANIM, IDLE_BOB, SHADOW } from './config';
+import { SHEET, type BrawlerSpawn } from './brawlers';
+import { ANIM, BRAWLER_SCALE, IDLE_BOB, SHADOW } from './config';
 
-export function armedSheetKey(name: string): string {
-  return `${name}_armed`;
+export function sheetKey(name: string): string {
+  return `${name}_sheet`;
 }
 
 /** Where the body sits inside one sheet cell, measured from the first walk frame. */
@@ -19,7 +19,7 @@ interface FrameMetrics {
   feetWidth: number;
 }
 
-/** One armed brawler standing on the map: idle bob, shoots or swings when tapped. */
+/** One brawler standing on the map: idle bob, shoots or swings when tapped. */
 export class Brawler {
   readonly sprite: Phaser.GameObjects.Sprite;
   readonly shadow: Phaser.GameObjects.Ellipse;
@@ -29,9 +29,9 @@ export class Brawler {
   private readonly shootKey: string;
 
   constructor(scene: Phaser.Scene, readonly spawn: BrawlerSpawn) {
-    const key = armedSheetKey(spawn.name);
+    const key = sheetKey(spawn.name);
     const m = sliceSheet(scene, key);
-    const scale = spawn.height / (m.bottom - m.top + 1);
+    const scale = BRAWLER_SCALE;
     const dir = spawn.faceLeft ? -1 : 1;
 
     // Origin on the feet, so x/y is where the brawler stands. A negative scaleX
@@ -53,16 +53,12 @@ export class Brawler {
     const height = (m.bottom + 1 - m.top) * scale;
     this.hitArea = new Phaser.Geom.Rectangle(Math.min(x1, x2), spawn.y - height, Math.abs(x2 - x1), height);
 
-    this.shootKey = `${spawn.name}_shoot`;
+    this.shootKey = `${spawn.name}_attack`;
     if (!scene.anims.exists(this.shootKey)) {
-      const first = ARMED_SHEET.cols; // row 2 starts after the 4 walk frames
+      const first = SHEET.cols; // row 2 starts after the 4 walk frames
       scene.anims.create({
         key: this.shootKey,
-        frames: [0, 1, 2, 3].map((i) => ({
-          key,
-          frame: first + i,
-          duration: i === 3 ? ANIM.attackLastFrameHoldMs : ANIM.attackFrameMs,
-        })),
+        frames: ANIM.attackFramesMs.map((duration, i) => ({ key, frame: first + i, duration })),
         repeat: 0,
       });
     }
@@ -70,7 +66,7 @@ export class Brawler {
     this.startIdleBob(scale * dir, scale);
   }
 
-  /** Play the shoot (or melee swing) row once, then stand again. */
+  /** Play the attack row (a shot, or a melee swing) once, then stand again. */
   attack(): void {
     if (this.sprite.anims.isPlaying) return;
     this.sprite.play(this.shootKey);
@@ -92,19 +88,19 @@ export class Brawler {
 }
 
 /**
- * The armed sheets are loaded as plain images because every brawler's cell size
+ * The sheets are loaded as plain images because every brawler's cell size
  * differs. Split the texture into its 4x2 frames and measure the body in frame 0.
  */
 function sliceSheet(scene: Phaser.Scene, key: string): FrameMetrics {
   const texture = scene.textures.get(key);
   const source = texture.getSourceImage() as HTMLImageElement;
-  const cellW = Math.floor(source.width / ARMED_SHEET.cols);
-  const cellH = Math.floor(source.height / ARMED_SHEET.rows);
+  const cellW = Math.floor(source.width / SHEET.cols);
+  const cellH = Math.floor(source.height / SHEET.rows);
 
   if (!texture.has('0')) {
-    for (let i = 0; i < ARMED_SHEET.cols * ARMED_SHEET.rows; i++) {
-      const col = i % ARMED_SHEET.cols;
-      const row = Math.floor(i / ARMED_SHEET.cols);
+    for (let i = 0; i < SHEET.cols * SHEET.rows; i++) {
+      const col = i % SHEET.cols;
+      const row = Math.floor(i / SHEET.cols);
       texture.add(i, 0, col * cellW, row * cellH, cellW, cellH);
     }
   }

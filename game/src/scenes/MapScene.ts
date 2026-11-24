@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { Brawler, armedSheetKey } from '../Brawler';
-import { SPAWNS, armedSheetUrl } from '../brawlers';
+import { Brawler, sheetKey } from '../Brawler';
+import { SPAWNS, sheetUrl } from '../brawlers';
 import { CameraControl } from '../CameraControl';
 import { MAP_TILES_PER_SIDE, MAP_TILE_SIZE, START_VIEW, ZOOM } from '../config';
 
@@ -23,7 +23,7 @@ export class MapScene extends Phaser.Scene {
       }
     }
     for (const spawn of SPAWNS) {
-      this.load.image(armedSheetKey(spawn.name), armedSheetUrl(spawn.name));
+      this.load.image(sheetKey(spawn.name), sheetUrl(spawn.name));
     }
   }
 
