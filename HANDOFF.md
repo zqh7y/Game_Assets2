@@ -91,7 +91,8 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 - Dough's armed sheet reuses his old rolling-pin walk and swing frames, so his bat there is a plain
   rolling pin without the cloth grip of the weapon icon.
 - Octo's gun is drawn very small in its armed sheet.
-- Mossy's yellow shell flower is on his card but missing from most of his animation frames.
+- Mossy's yellow shell flower is in every animation frame except the big heal-burst frame
+  (row 3, frame 3 of `Mossy_sheet_right.png`).
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
 
@@ -143,6 +144,10 @@ a magenta or green background and detect the key color from the top-left corner.
   first: it prints the objects it found in reading order and writes a `_check_` image.
   `merge_px` (default 15) is how far apart parts may be and still count as one object;
   lower it (9-13) when two neighbours get merged.
+
+- `tools/build_overviews.py [REPO]` - rebuilds `animations/_overview.jpg` and
+  `animations/_armed_overview.jpg` from every brawler folder in `animations/`. Run it after
+  adding or changing any brawler's sheets.
 
 Always open the `_check_` image before copying anything into the repo. Don't commit
 `_check_` files.
