@@ -77,6 +77,10 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   Not made yet: ground pieces (road, water, sand, cobblestone), hay bales, mooring
   posts, statue, lookout platform.
 - `tools/` - the Python scripts that cut the raw Gemini images (see the end of this file).
+- `game/` - the game prototype (TypeScript + Phaser 4 + Vite), started Nov 24 on Artem's
+  request: the scrollable, zoomable map with the 11 armed brawlers standing near the castle,
+  tap one to play its shoot row. See `game/README.md`. Artem said he'll say what to fix
+  next; don't extend it unasked.
 
 ## Brawlers and roles
 
@@ -215,4 +219,3 @@ Always open the `_check_` image before copying anything into the repo. Don't com
 - A real armed run row for everyone.
 - A Mossy entry in `effects/attacks/`.
 - The missing map pieces listed under `maps/assets/`.
-- Start the game prototype itself using these assets.

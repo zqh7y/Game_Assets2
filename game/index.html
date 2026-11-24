@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>Castle Island Brawlers</title>
+    <style>
+      :root {
+        --page-bg: #e8e3d8;
+        --hint-bg: rgba(18, 22, 31, 0.72);
+        --hint-fg: #ffffff;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+          --page-bg: #12161f;
+        }
+      }
+      :root[data-theme='dark'] {
+        --page-bg: #12161f;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        overflow: hidden;
+        background: var(--page-bg);
+        touch-action: none;
+        overscroll-behavior: none;
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      /* Full screen on phones; a centered 9:16 column on wider screens. */
+      #game {
+        position: fixed;
+        top: env(safe-area-inset-top, 0px);
+        bottom: env(safe-area-inset-bottom, 0px);
+        left: 50%;
+        transform: translateX(-50%);
+        width: min(100vw, calc(100dvh * 9 / 16));
+      }
+      #hint {
+        position: fixed;
+        left: 50%;
+        bottom: max(24px, env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        max-width: calc(100vw - 32px);
+        box-sizing: border-box;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--hint-bg);
+        color: var(--hint-fg);
+        font: 500 14px/1.3 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        text-align: center;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+      }
+      #hint.visible {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="game"></div>
+    <div id="hint">Drag to move · pinch to zoom · tap a brawler</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

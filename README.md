@@ -12,6 +12,7 @@ Art assets for the brawler game.
 - `weapons/` - one weapon per brawler: 8 toy blasters and 3 melee weapons (transparent PNG, side view, barrel pointing right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`
 - `weapons/bullets/` - `<brawler>_bullet.png`, the projectile each gun shoots (flies to the right; melee brawlers have none)
 - `stats/weapons.json` - starting balance numbers and the asset paths for every weapon
+- `game/` - the game prototype (TypeScript + Phaser 4): the scrollable map with the brawlers near the castle. See `game/README.md`
 - `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
 
 ## Brawlers
