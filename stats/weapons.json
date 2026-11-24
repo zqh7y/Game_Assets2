@@ -1,5 +1,5 @@
 {
-  "_note": "Starting numbers for balance, meant to be tuned in playtests. Every gun is built around roughly 100 damage per second; short-range and heavy guns get about 20-25% more because they are harder to use. range and splash_radius are in tiles (1 tile = one brawler width); bullet_speed is tiles per second; fire_interval is seconds between shots.",
+  "_note": "Starting numbers for balance, meant to be tuned in playtests. Every gun is built around roughly 100 damage per second; short-range and heavy guns get about 20-25% more because they are harder to use. range and splash_radius are in tiles (1 tile = one brawler width); bullet_speed is tiles per second; fire_interval is seconds between shots. Melee weapons have no bullet: range is the reach of the swing.",
   "weapons": {
     "Beam": {
       "weapon": "Lighthouse Sniper",
@@ -19,20 +19,17 @@
       }
     },
     "Bill": {
-      "weapon": "Fish Harpoon Gun",
-      "style": "long",
-      "damage": 180,
-      "fire_interval": 1.8,
-      "dps": 100,
-      "range": 8.0,
-      "bullet_speed": 16,
-      "stun_seconds": 0.4,
+      "weapon": "Frozen Fish Club",
+      "style": "melee",
+      "damage": 170,
+      "fire_interval": 1.4,
+      "dps": 121,
+      "range": 1.4,
+      "stun_seconds": 0.5,
       "assets": {
-        "gun": "weapons/bill_harpoon_gun.png",
-        "bullet": "weapons/bullets/bill_bullet.png",
+        "weapon": "weapons/bill_frozen_fish_club.png",
+        "swing": "effects/weapons/bill_swing.png",
         "hit": "effects/weapons/bill_hit_sheet.png",
-        "muzzle_flash": "weapons/muzzle_flash.png",
-        "muzzle_tint": "#BFE6FF",
         "armed_sheet": "animations/Bill/Bill_armed_sheet_right.png"
       }
     },
@@ -72,20 +69,17 @@
       }
     },
     "Soot": {
-      "weapon": "Chimney SMG",
-      "style": "mid",
-      "damage": 14,
-      "fire_interval": 0.14,
-      "dps": 100,
-      "range": 5.0,
-      "bullet_speed": 18,
-      "move_speed_bonus": 0.15,
+      "weapon": "Sooty Knife",
+      "style": "melee",
+      "damage": 45,
+      "fire_interval": 0.35,
+      "dps": 129,
+      "range": 1.0,
+      "move_speed_bonus": 0.2,
       "assets": {
-        "gun": "weapons/soot_chimney_smg.png",
-        "bullet": "weapons/bullets/soot_bullet.png",
+        "weapon": "weapons/soot_sooty_knife.png",
+        "swing": "effects/weapons/soot_swing.png",
         "hit": "effects/weapons/soot_hit_sheet.png",
-        "muzzle_flash": "weapons/muzzle_flash.png",
-        "muzzle_tint": "#8A8A92",
         "armed_sheet": "animations/Soot/Soot_armed_sheet_right.png"
       }
     },
@@ -144,20 +138,17 @@
       }
     },
     "Dough": {
-      "weapon": "Rolling-Pin Shotgun",
-      "style": "short",
-      "damage": 30,
+      "weapon": "Rolling-Pin Bat",
+      "style": "melee",
+      "damage": 150,
       "fire_interval": 1.2,
       "dps": 125,
-      "range": 3.0,
-      "bullet_speed": 16,
-      "pellets": 5,
+      "range": 1.3,
+      "knockback": 0.6,
       "assets": {
-        "gun": "weapons/dough_rollingpin_shotgun.png",
-        "bullet": "weapons/bullets/dough_bullet.png",
+        "weapon": "weapons/dough_rollingpin_bat.png",
+        "swing": "effects/weapons/dough_swing.png",
         "hit": "effects/weapons/dough_hit_sheet.png",
-        "muzzle_flash": "weapons/muzzle_flash.png",
-        "muzzle_tint": "#FFFFFF",
         "armed_sheet": "animations/Dough/Dough_armed_sheet_right.png"
       }
     },

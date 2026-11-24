@@ -9,8 +9,8 @@ Art assets for the brawler game.
 - `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
 - `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `maps/assets/<group>/` - the map's objects as separate transparent PNGs, in groups `buildings`, `nature` and `structures`
-- `weapons/` - one toy blaster per brawler (transparent PNG, side view, barrel pointing right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`
-- `weapons/bullets/` - `<brawler>_bullet.png`, the projectile each gun shoots (flies to the right)
+- `weapons/` - one weapon per brawler: 8 toy blasters and 3 melee weapons (transparent PNG, side view, barrel pointing right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`
+- `weapons/bullets/` - `<brawler>_bullet.png`, the projectile each gun shoots (flies to the right; melee brawlers have none)
 - `stats/weapons.json` - starting balance numbers and the asset paths for every weapon
 - `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
 
@@ -44,19 +44,19 @@ Every brawler has walk, run and attack rows. Nana only holds her slipper in the 
 
 ## Weapons
 
-Every brawler has its own gun, skinned in its own colors.
+Every brawler has its own weapon, skinned in its own colors: 8 guns and 3 melee weapons (bat, knife, fish club).
 
 | Brawler | Weapon | Shoots | Style |
 | --- | --- | --- | --- |
 | Beam | Lighthouse Sniper | light bolt | long range, slow, big hits |
-| Bill | Fish Harpoon Gun | fish harpoon | long range, short stun |
+| Bill | Frozen Fish Club | melee smash | melee, short stun |
 | Pango | Pinecone Bazooka | pinecone rocket | long range, splash |
 | Honey | Honeycomb AK | bee bullet | mid range, steady |
-| Soot | Chimney SMG | soot pellet | mid range, fast |
+| Soot | Sooty Knife | melee slash | melee, very fast |
 | Tardi | Ray Gun | plasma ring | mid range, steady |
 | Octo | Ink Soaker | ink blob | mid range, slows |
 | Nana | Slipper Launcher | slipper | mid range, small splash |
-| Dough | Rolling-Pin Shotgun | dough balls | short range, strong up close |
+| Dough | Rolling-Pin Bat | melee swing | melee, big hits, knockback |
 | Capy | Citrus Minigun | orange slices | heavy, spin-up, slow walk |
 | Axo | Bubble Blaster | heart bubble | support, heals teammates |
 
@@ -67,10 +67,11 @@ Bullets and their hit effects (hit effects are in `effects/weapons/`):
 ![Bullets and hits](weapons/bullets/_overview.jpg)
 
 Armed animations are in `animations/<Name>/`: `<Name>_armed_sheet_right.png` and `_left.png`
-(2 rows x 4 frames: row 1 walk with the gun, row 2 shoot: aim, fire with muzzle flash, recoil, back to aim),
-GIFs for walk, run (the walk frames played faster) and shoot, and `<Name>_armed_preview.gif` (shot, bullet, hit).
-The brawlers were redrawn holding their guns in both hands. Capy and Tardi walk on four legs, so their
-guns are strapped on their backs.
+(2 rows x 4 frames: row 1 walk with the weapon, row 2 shoot or melee attack), GIFs for walk, run (the walk
+frames played faster) and shoot / attack, and `<Name>_armed_preview.gif`.
+The weapon is held low in both fists so the face is always visible. Capy and Tardi stand upright in their
+armed sheets so they can hold their guns. Dough, Soot and Bill are melee: their second row is a swing, and
+their swing arcs are `effects/weapons/<name>_swing.png`.
 
 ![Armed brawlers](animations/_armed_overview.jpg)
 
@@ -83,7 +84,7 @@ guns are strapped on their backs.
 | `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
 | `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink` |
 | `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
-| `weapons/` | `<brawler>_hit` for all 11 guns (3 frames: small, full, fading) |
+| `weapons/` | `<brawler>_hit` for all 11 weapons (3 frames: small, full, fading), `<name>_swing` arcs for the 3 melee weapons |
 | `spawn/` | `spawn_poof_white`, `spawn_poof_blue` (blue team), `spawn_poof_red` (red team), `spawn_poof_dust` (unit lands on the ground) |
 
 Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.

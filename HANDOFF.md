@@ -41,15 +41,23 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   a 4x upscale and `tools/cut_assets.py`. They are redraws, not cut-outs of the map.
   Not made yet: ground pieces (road, water, sand, cobblestone), hay bales, mooring
   posts, statue, lookout platform.
-- `weapons/` - one toy blaster per brawler, skinned in that brawler's colors (side view, barrel
-  right), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`. `weapons/bullets/` has each
-  gun's projectile. `effects/weapons/` has each gun's hit effect (3 frames).
-- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (row 1 walk with
-  the gun, row 2 shoot), GIFs, and `<Name>_armed_preview.gif`. They were redrawn in Gemini, two
-  brawlers per image (4 rows x 4 frames: A walk, A shoot, B walk, B shoot; attach both brawler cards
-  and both gun PNGs), then cut with `tools/build_armed.py`. Artem rejected guns pasted on in code
-  ("looks cheap") - the brawler must really grip a small gun with both hands. Capy and Tardi carry
-  theirs on a strapped saddle on the back.
+- `weapons/` - one weapon per brawler, skinned in that brawler's colors: 8 toy blasters (side view,
+  barrel right) and 3 melee weapons (Dough rolling-pin bat, Soot sooty knife, Bill frozen fish club),
+  plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`. `weapons/bullets/` has each gun's
+  projectile. `effects/weapons/` has each weapon's hit effect and the 3 melee swing arcs.
+- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (row 1 walk with the
+  weapon, row 2 shoot or melee attack), GIFs, and `<Name>_armed_preview.gif`. Cut with
+  `tools/build_armed.py` (add `--melee` for melee sheets).
+  HOW THEY WERE MADE (this took four tries, do it this way): Artem rejected guns pasted on in code
+  ("cheap") and Gemini sheets where the gun sits on the chest and covers the face ("they're not
+  holding it"). Gemini ignores text like "hold it below the chin". What worked: build a DRAFT sheet
+  in code with the gun pasted LOW in front of the brawler, two brawlers per image (4 rows x 4
+  frames: A walk, A shoot, B walk, B shoot), upload only that draft and ask Gemini to redraw the
+  same sheet keeping the gun's position, size and angle and changing only the arms: both sleeves
+  reach down to the gun, near fist closed around the grip, far fist under the barrel. For new poses
+  with no draft (melee, Capy and Tardi upright) attach a finished armed sheet as the pose reference.
+- Capy and Tardi stand upright in their armed sheets (Artem chose that so they hold the gun in their
+  paws); their unarmed sheets are still four-legged.
 - `stats/weapons.json` - starting balance numbers (about 100 damage per second each) and asset paths.
 - `tools/` - the Python scripts that cut the raw Gemini images (see below).
 
@@ -80,8 +88,9 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## Known small flaws (fix only if Artem asks)
 
 - The last `heal_sparkles` frame is greyish; tiny dust balls keep a faint pink rim.
-- In the armed sheets Honey's honey-dipper stock disappears in some shoot frames, and the shoot
-  frames of Capy are slightly bigger than his walk frames.
+- Dough's armed sheet reuses his old rolling-pin walk and swing frames, so his bat there is a plain
+  rolling pin without the cloth grip of the weapon icon.
+- Octo's gun is drawn very small in its armed sheet.
 - Nana holds her slipper only in the attack row (on purpose, it fixed an
   inconsistency).
 

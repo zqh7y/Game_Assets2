@@ -1,6 +1,6 @@
 """Build the armed (gun in hands) animations from a Gemini sheet.
 
-usage: python3 -I tools/build_armed.py SHEET.jpg REPO OUTROOT NameA [NameB]
+usage: python3 -I tools/build_armed.py SHEET.jpg REPO OUTROOT NameA [NameB] [--melee]
 
 SHEET.jpg is a keyed sheet with 4 frames per row:
   two brawlers:  row 1 A walk, row 2 A shoot, row 3 B walk, row 4 B shoot
@@ -8,6 +8,7 @@ SHEET.jpg is a keyed sheet with 4 frames per row:
 Writes OUTROOT/<Name>/<Name>_armed_sheet_right.png / _left.png (row 1 walk, row 2 shoot),
 <Name>_armed_{walk,run,shoot}_{right,left}.gif (run = the walk frames played faster),
 <Name>_armed_preview.gif (shot, bullet, hit) and _check_<Name>.jpg (look at it; never commit it).
+With --melee row 2 is the melee attack: the GIF is named _armed_attack_ and no bullet is drawn.
 Needs REPO/weapons/bullets/<name>_bullet.png and REPO/effects/weapons/<name>_hit_2.png.
 """
 import sys, os, subprocess, tempfile
@@ -27,8 +28,9 @@ def gif(frames, path, durations):
     out[0].save(path, save_all=True, append_images=out[1:], duration=durations, loop=0, disposal=2)
 
 
-def one(src_img, repo, outroot, name):
+def one(src_img, repo, outroot, name, melee=False):
     low = name.lower()
+    act = 'attack' if melee else 'shoot'
     tmp = tempfile.mkdtemp()
     src_img.save(f'{tmp}/src.jpg', quality=97)
     subprocess.run([sys.executable, '-I', f'{HERE}/build_anim.py', f'{tmp}/src.jpg', name, tmp, '0,0,1'],
@@ -47,10 +49,19 @@ def one(src_img, repo, outroot, name):
             left.alpha_composite(f.transpose(Image.FLIP_LEFT_RIGHT), (k * cw, r * ch))
     right.save(f'{out}/{name}_armed_sheet_right.png')
     left.save(f'{out}/{name}_armed_sheet_left.png')
-    for label, row, dur in (('walk', walk, [140] * 4), ('run', walk, [85] * 4), ('shoot', shoot, [220, 80, 120, 260])):
+    for label, row, dur in (('walk', walk, [140] * 4), ('run', walk, [85] * 4), (act, shoot, [220, 80, 120, 260])):
         gif(row, f'{out}/{name}_armed_{label}_right.gif', dur)
         gif([f.transpose(Image.FLIP_LEFT_RIGHT) for f in row], f'{out}/{name}_armed_{label}_left.gif', dur)
 
+    if melee:
+        w2, h2 = max(f.width for f in walk + shoot), ch
+        gif(walk + walk + shoot, f'{out}/{name}_armed_preview.gif', [140] * 8 + [220, 90, 140, 500])
+        chk = Image.new('RGBA', (cw * 6, ch), (70, 88, 110, 255))
+        for i, f in enumerate(walk[:2] + shoot):
+            chk.alpha_composite(f, (i * cw, 0))
+        chk.convert('RGB').save(f'{out}/_check_{name}.jpg', quality=88)
+        print(name, 'cell', (cw, ch), 'melee')
+        return
     # muzzle = right-most point of the aim frame
     a = np.asarray(shoot[0])[..., 3] > 60
     xs = np.where(a.any(0))[0]
@@ -89,9 +100,11 @@ def one(src_img, repo, outroot, name):
 
 def main():
     src, repo, outroot, names = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4:]
+    melee = '--melee' in names
+    names = [n for n in names if n != '--melee']
     im = Image.open(src).convert('RGB')
     if len(names) == 1:
-        one(im, repo, outroot, names[0])
+        one(im, repo, outroot, names[0], melee)
         return
     a = np.asarray(im).astype(np.int32)
     c = a[:10, :10].reshape(-1, 3).mean(0)
@@ -101,8 +114,8 @@ def main():
     H = im.height
     lo, hi = H // 2 - H // 12, H // 2 + H // 12
     cut = lo + int(np.argmin(solid[lo:hi]))
-    one(im.crop((0, 0, im.width, cut)), repo, outroot, names[0])
-    one(im.crop((0, cut, im.width, H)), repo, outroot, names[1])
+    one(im.crop((0, 0, im.width, cut)), repo, outroot, names[0], melee)
+    one(im.crop((0, cut, im.width, H)), repo, outroot, names[1], melee)
 
 
 if __name__ == '__main__':
