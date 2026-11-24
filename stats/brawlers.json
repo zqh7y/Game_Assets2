@@ -1,0 +1,335 @@
+{
+  "_note": "Starting numbers only - change them freely. speed and range are in map tiles; damage is per hit (per pellet for Barley).",
+  "brawlers": [
+    {
+      "name": "Rook",
+      "who": "castle guard",
+      "look": "grey helmet, red outfit",
+      "role": "all-rounder",
+      "weapon": "ak47",
+      "melee": false,
+      "hp": 100,
+      "speed": 1.0,
+      "damage": 15,
+      "attacks_per_sec": 6,
+      "range": 6,
+      "assets": {
+        "art": "brawlers/Rook.png",
+        "sheet_right": "animations/Rook/Rook_sheet_right.png",
+        "sheet_left": "animations/Rook/Rook_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/ak47.png",
+        "projectile": "weapons/projectiles/bullet_small.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Bram",
+      "who": "blacksmith",
+      "look": "curly brown hair, red headband, brown apron",
+      "role": "tank, melee",
+      "weapon": "sledgehammer",
+      "melee": true,
+      "hp": 180,
+      "speed": 0.9,
+      "damage": 60,
+      "attacks_per_sec": 1.0,
+      "range": 1.2,
+      "splash_radius": 0.8,
+      "assets": {
+        "art": "brawlers/Bram.png",
+        "sheet_right": "animations/Bram/Bram_sheet_right.png",
+        "sheet_left": "animations/Bram/Bram_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "attack"
+        ],
+        "weapon": "weapons/sledgehammer.png",
+        "projectile": null,
+        "muzzle_flash": null,
+        "swing": "effects/combat/melee_swing_sheet.png",
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Hood",
+      "who": "forest outlaw",
+      "look": "green hood",
+      "role": "sniper",
+      "weapon": "sniper_rifle",
+      "melee": false,
+      "hp": 70,
+      "speed": 0.9,
+      "damage": 90,
+      "attacks_per_sec": 0.8,
+      "range": 11,
+      "assets": {
+        "art": "brawlers/Hood.png",
+        "sheet_right": "animations/Hood/Hood_sheet_right.png",
+        "sheet_left": "animations/Hood/Hood_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/sniper_rifle.png",
+        "projectile": "weapons/projectiles/bullet_sniper.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Barley",
+      "who": "farmer",
+      "look": "yellow straw hat, blue overalls",
+      "role": "close range",
+      "weapon": "double_barrel_shotgun",
+      "melee": false,
+      "hp": 110,
+      "speed": 1.0,
+      "damage": 12,
+      "pellets": 5,
+      "attacks_per_sec": 1.2,
+      "range": 3.5,
+      "assets": {
+        "art": "brawlers/Barley.png",
+        "sheet_right": "animations/Barley/Barley_sheet_right.png",
+        "sheet_left": "animations/Barley/Barley_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/double_barrel_shotgun.png",
+        "projectile": "weapons/projectiles/pellets_shotgun.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Wick",
+      "who": "sailor",
+      "look": "navy beanie, eye patch, striped shirt",
+      "role": "mid range, big hits",
+      "weapon": "revolver",
+      "melee": false,
+      "hp": 90,
+      "speed": 1.0,
+      "damage": 45,
+      "attacks_per_sec": 2,
+      "range": 7,
+      "assets": {
+        "art": "brawlers/Wick.png",
+        "sheet_right": "animations/Wick/Wick_sheet_right.png",
+        "sheet_left": "animations/Wick/Wick_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/revolver.png",
+        "projectile": "weapons/projectiles/bullet_small.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Ash",
+      "who": "rogue",
+      "look": "dark grey hood, red scarf",
+      "role": "assassin, melee",
+      "weapon": "combat_knife",
+      "melee": true,
+      "hp": 80,
+      "speed": 1.3,
+      "damage": 40,
+      "attacks_per_sec": 2.5,
+      "range": 1.0,
+      "assets": {
+        "art": "brawlers/Ash.png",
+        "sheet_right": "animations/Ash/Ash_sheet_right.png",
+        "sheet_left": "animations/Ash/Ash_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "attack"
+        ],
+        "weapon": "weapons/combat_knife.png",
+        "projectile": null,
+        "muzzle_flash": null,
+        "swing": "effects/combat/melee_swing_sheet.png",
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Sage",
+      "who": "village healer",
+      "look": "curly hair, leaf headband, green robe",
+      "role": "healer",
+      "weapon": "pistol",
+      "melee": false,
+      "hp": 80,
+      "speed": 1.0,
+      "damage": 12,
+      "heal": 20,
+      "attacks_per_sec": 2,
+      "range": 6,
+      "assets": {
+        "art": "brawlers/Sage.png",
+        "sheet_right": "animations/Sage/Sage_sheet_right.png",
+        "sheet_left": "animations/Sage/Sage_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/pistol.png",
+        "projectile": "weapons/projectiles/bullet_heal.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/heal_sheet.png"
+      }
+    },
+    {
+      "name": "Chop",
+      "who": "lumberjack",
+      "look": "fur cap, big orange beard, red outfit",
+      "role": "bruiser, melee",
+      "weapon": "axe",
+      "melee": true,
+      "hp": 150,
+      "speed": 1.0,
+      "damage": 50,
+      "attacks_per_sec": 1.4,
+      "range": 1.3,
+      "assets": {
+        "art": "brawlers/Chop.png",
+        "sheet_right": "animations/Chop/Chop_sheet_right.png",
+        "sheet_left": "animations/Chop/Chop_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "attack"
+        ],
+        "weapon": "weapons/axe.png",
+        "projectile": null,
+        "muzzle_flash": null,
+        "swing": "effects/combat/melee_swing_sheet.png",
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Tusk",
+      "who": "mercenary",
+      "look": "horned helmet, fur collar",
+      "role": "heavy",
+      "weapon": "minigun",
+      "melee": false,
+      "hp": 200,
+      "speed": 0.75,
+      "damage": 8,
+      "attacks_per_sec": 14,
+      "range": 6,
+      "assets": {
+        "art": "brawlers/Tusk.png",
+        "sheet_right": "animations/Tusk/Tusk_sheet_right.png",
+        "sheet_left": "animations/Tusk/Tusk_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/minigun.png",
+        "projectile": "weapons/projectiles/bullet_small.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Pip",
+      "who": "castle messenger",
+      "look": "red cap with a feather, yellow outfit",
+      "role": "fast flanker",
+      "weapon": "uzi",
+      "melee": false,
+      "hp": 70,
+      "speed": 1.35,
+      "damage": 9,
+      "attacks_per_sec": 10,
+      "range": 4.5,
+      "assets": {
+        "art": "brawlers/Pip.png",
+        "sheet_right": "animations/Pip/Pip_sheet_right.png",
+        "sheet_left": "animations/Pip/Pip_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/uzi.png",
+        "projectile": "weapons/projectiles/bullet_small.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/bullet_hit_sheet.png"
+      }
+    },
+    {
+      "name": "Fuse",
+      "who": "bombardier",
+      "look": "leather cap with goggles, orange scarf",
+      "role": "area damage",
+      "weapon": "rpg",
+      "melee": false,
+      "hp": 80,
+      "speed": 0.9,
+      "damage": 110,
+      "attacks_per_sec": 0.5,
+      "range": 9,
+      "splash_radius": 1.5,
+      "assets": {
+        "art": "brawlers/Fuse.png",
+        "sheet_right": "animations/Fuse/Fuse_sheet_right.png",
+        "sheet_left": "animations/Fuse/Fuse_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/rpg.png",
+        "projectile": "weapons/projectiles/rocket.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/explosion_sheet.png"
+      }
+    },
+    {
+      "name": "Jinx",
+      "who": "castle jester",
+      "look": "green and yellow jester hat, white mask",
+      "role": "thrower",
+      "weapon": "grenade_launcher",
+      "melee": false,
+      "hp": 90,
+      "speed": 1.0,
+      "damage": 55,
+      "attacks_per_sec": 1.0,
+      "range": 7,
+      "splash_radius": 1.2,
+      "lobbed": true,
+      "assets": {
+        "art": "brawlers/Jinx.png",
+        "sheet_right": "animations/Jinx/Jinx_sheet_right.png",
+        "sheet_left": "animations/Jinx/Jinx_sheet_left.png",
+        "sheet_rows": [
+          "walk",
+          "shoot"
+        ],
+        "weapon": "weapons/grenade_launcher.png",
+        "projectile": "weapons/projectiles/grenade.png",
+        "muzzle_flash": "effects/combat/muzzle_flash_sheet.png",
+        "swing": null,
+        "hit_effect": "effects/combat/explosion_sheet.png"
+      }
+    }
+  ]
+}

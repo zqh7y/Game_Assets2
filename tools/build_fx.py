@@ -24,6 +24,10 @@ def key(im):
     else:
         out[..., 0] = np.where(m, R - spill, R)
         out[..., 2] = np.where(m, B - spill, B)
+        # light pixels with a faint pink tint (white things next to the magenta key) -> neutral
+        tint = (k > 3) & (k <= 15) & (G > 140)
+        out[..., 0] = np.where(tint, R - k, out[..., 0])
+        out[..., 2] = np.where(tint, B - k, out[..., 2])
     return np.dstack([np.clip(out, 0, 255), alpha]).astype(np.uint8)
 
 

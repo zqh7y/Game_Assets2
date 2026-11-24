@@ -1,22 +1,21 @@
 # Handoff for the next Claude session
 
 Read this first. It says what exists, how it was made, and the rules to keep.
-Last updated: Nov 24, 2026.
+Last updated: Nov 25, 2026.
 
 ## Start here
 
 1. `git pull --rebase origin main` before you touch anything. More than one Claude session
    pushes to this repo (one made the brawler art, one made the map).
-2. Read this file, then skim `README.md` (every folder and file type) and look at the
-   overview images: `brawlers/_overview.png`, `cards/_overview.jpg`,
-   `animations/_overview.jpg`, `animations/_armed_overview.jpg`, `weapons/_overview.jpg`,
-   `maps/assets/_overview.jpg`.
+2. Read this file, then skim `README.md` and look at the overview images:
+   `brawlers/_overview.jpg`, `animations/_overview.jpg`, `weapons/_overview.jpg`,
+   `effects/combat/_overview.jpg`, `maps/assets/_overview.jpg`.
 3. Ask Artem what he wants next. Don't start redoing finished work on your own.
 
 ## The project
 
-Art for Artem's own mobile game: a 9:16 PvP brawler where players draft brawlers from
-pick cards and small squads fight on a castle-island map.
+Art for Artem's own mobile game: a 9:16 PvP brawler where small squads fight on a
+castle-island map.
 
 This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished work to
 `main` as you go: commit, `git pull --rebase origin main`, then push.
@@ -24,99 +23,95 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
 ## Working with Artem
 
 - He writes short and casual ("bro", "ofc") and wants short, casual answers back.
-- For a big task, write your plan or suggestions first and wait for his OK. He often
-  says "Done" or "ok then done" to mean "go".
-- Only change what he asks for. He gets annoyed when finished things get redone
-  unasked ("why u redo the octo?").
+- For a big task, write your plan or ideas first and wait for his OK. He often says
+  "Done" or "ok done" to mean "go".
+- Only change what he asks for. He gets annoyed when finished things get redone unasked,
+  and he stops work he doesn't want mid-way (on Nov 24 he stopped the pick cards: "dont do
+  the cards" - don't make pick cards unless he asks again).
 - Send him a preview image or GIF of every result, then a short summary that names any
   flaws honestly.
 - Gemini quota is tight: get as much as possible out of each image (several brawlers or
   items per sheet) without hurting quality.
+- He said he will tell you which brawlers to replace. Replacing one means: one new
+  character (attach `brawlers/_overview.jpg` so the style matches), one 4x4 animation
+  sheet, and maybe a new weapon.
 
-## What already exists (all done, don't redo)
+## The roster (made Nov 24-25, super minimal style)
 
-- `brawlers/` - reference art for the 11 brawlers: Beam, Dough, Soot, Honey, Nana, Capy,
-  Pango, Bill, Tardi, Octo, Mossy. Peep, Dragon, Spooky and Axo were removed on Artem's
-  request (Nov 24) - don't add them back.
-- `cards/` - `<Name>_card.png` for all 11: transparent, arch-shaped gold-rim pick card
-  with a name ribbon and a count badge.
-- `animations/<Name>/` - for all 11: `<Name>_sheet_right.png` and `_sheet_left.png`
-  (transparent, 3 rows x 4 frames, uniform cells: row 1 walk, row 2 run, row 3 attack),
-  GIFs for walk / run / attack in both directions, and `<Name>_preview.gif`.
-  Timing used in the GIFs: walk 140 ms per frame, run 90 ms, attack 150 ms with the
-  last frame held 450 ms. Mossy's row 3 is a heal pulse instead of an attack.
-- Armed animations: `animations/<Name>/<Name>_armed_sheet_right.png` / `_left.png` (row 1
-  walk with the weapon, row 2 shoot or melee attack), `<Name>_armed_{walk,run,shoot}` GIFs
-  (`_attack_` for melee) and `<Name>_armed_preview.gif` (shot, bullet, hit). Capy and Tardi
-  stand upright in their armed sheets (Artem chose that so they hold the gun in their
-  paws); their unarmed sheets are still four-legged.
-- `weapons/` - one weapon per brawler, skinned in that brawler's colors: 8 toy blasters
-  (side view, barrel right) and 3 melee weapons (Dough rolling-pin bat, Soot sooty knife,
-  Bill frozen fish club), plus `muzzle_flash.png`, `weapon_crate.png`, `ammo_box.png`.
-  `weapons/bullets/` has each gun's projectile.
-- `effects/<group>/` - effects without characters. Per effect: `<name>_sheet.png`
-  (4-frame strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png`,
-  `<name>.gif`. Groups: `movement`, `hit`, `defeat`, `attacks`, `support` (incl.
-  `heal_heart`), `spawn` (POOF bursts when a brawler appears: white, blue team, red team,
-  ground dust), `weapons` (each weapon's 3-frame hit effect, the 3 melee swing arcs,
-  `mossy_muzzle.png`). Frames are centered in their cell, so travel (slipper flying, soul
-  rising) is done by moving the sprite in code. Effects that point somewhere point right.
-- `stats/weapons.json` - starting balance (about 100 damage per second for guns, melee a
-  bit higher, Mossy low damage plus 25 heal per shot) and the asset paths per brawler.
-- `maps/` - `castle_island_map.png` (4096x4096, the scrolling battle map) and
-  `castle_island_map_1024.png` (the original Gemini image). Square map: castle base on a
-  long island in a lake, 4 gates and roads to 4 stone bridges, big mainland with wide
-  roads, plazas, villages, farms, forests and water exits. Gemini only outputs 1024 px,
-  so the big file is a 4x Real-ESRGAN (anime_6B) upscale; small details are a bit soft.
-  To change the map, attach the 1024 file in a new Gemini chat and ask for edits that
-  keep everything else the same.
-- `maps/assets/<group>/` - 38 map objects as separate transparent PNGs (`buildings`,
-  `nature`, `structures`), plus `_overview.jpg`. Made by attaching the 1024 map in Gemini
-  and asking for a 4x3 sprite sheet on magenta "redrawn in exactly the same style", then
-  a 4x upscale and `tools/cut_assets.py`. They are redraws, not cut-outs of the map.
-  Not made yet: ground pieces (road, water, sand, cobblestone), hay bales, mooring
-  posts, statue, lookout platform.
-- `tools/` - the Python scripts that cut the raw Gemini images (see the end of this file).
-- `game/` - the game prototype (TypeScript + Phaser 4 + Vite), started Nov 24 on Artem's
-  request: the scrollable, zoomable map with the 11 armed brawlers standing near the castle,
-  tap one to play its shoot row. See `game/README.md`. Artem said he'll say what to fix
-  next; don't extend it unasked.
+12 brawlers. Artem dropped the old pet roster (Beam, Dough, Soot, Honey, Nana, Capy,
+Pango, Bill, Tardi, Octo, Mossy); its files are in `old_roster/` and must not come back
+into the main folders.
 
-## Brawlers and roles
-
-| Brawler | What it is | Role | Weapon | Attack effect |
+| Brawler | Who | Look | Weapon | Role |
 | --- | --- | --- | --- | --- |
-| Beam | lighthouse keeper | long-range | lighthouse sniper | `beam_light` |
-| Dough | baker | close-range | rolling-pin bat (melee) | `dough_flour` |
-| Soot | chimney sweep | fast, sneaky | sooty knife (melee) | `soot_cloud` |
-| Honey | beekeeper | long-range | honeycomb AK | `honey_bees` |
-| Nana | grandma with a slipper | thrower | slipper launcher | `nana_slipper` |
-| Capy | capybara | calm tank | citrus minigun | `capy_bonk` |
-| Pango | pangolin | armored roller | pinecone bazooka | `pango_dust` |
-| Bill | shoebill | stare stun | frozen fish club (melee) | `bill_shockwave` |
-| Tardi | tardigrade | tank | ray gun | `tardi_bubble` |
-| Octo | octopus | ink squirt | ink soaker | `octo_ink` |
-| Mossy | garden snail | healer (replaced Axo) | dew-drop sprayer | none yet (use `support/heal_heart`) |
+| Rook | castle guard | grey helmet, red outfit | AK-47 | all-rounder |
+| Bram | blacksmith | curly brown hair, red headband, brown apron | sledgehammer | tank, melee |
+| Hood | forest outlaw | green hood | sniper rifle | sniper |
+| Barley | farmer | yellow straw hat, blue overalls | double-barrel shotgun | close range |
+| Wick | sailor | navy beanie, eye patch, striped shirt | revolver | mid range |
+| Ash | rogue | dark grey hood, red scarf | combat knife | assassin, melee |
+| Sage | village healer | curly hair, leaf headband, green robe | pistol, heals | healer |
+| Chop | lumberjack | fur cap, big orange beard, red outfit | axe | bruiser, melee |
+| Tusk | mercenary | horned helmet, fur collar | minigun | heavy |
+| Pip | castle messenger | red cap with a feather, yellow outfit | Uzi | fast flanker |
+| Fuse | bombardier | leather cap with goggles, orange scarf | RPG | area damage |
+| Jinx | castle jester | green and yellow jester hat, white mask | grenade launcher | thrower |
+
+`stats/brawlers.json` has each one's starting numbers and every asset path.
 
 ## Artem's design laws (never break these)
 
-- Minimal: one simple blob body, dot eyes, no small details.
-- 3 colors per brawler plus a thick dark rounded outline. Flat 2D vector look, one
-  slightly darker flat shade per color, no gradients, no texture, no 3D.
-- 3/4 side view facing RIGHT (mirror for left). Never facing the camera.
-- Unique characters that other games barely use.
-- Weapons are held low in the hands and never cover the face.
+- Super minimal, copied from his reference (little cavemen): short bean body, the top is
+  a hat or hair that hides the eyes, a plain skin-colored face strip with NO eyes, mouth or
+  nose, one flat outfit color, two tiny stick legs, NO arms, two small floating round hands.
+- No small details: no folds, stitches, buttons, straps, patterns. Thick dark brown
+  outline, flat colors. It must match the castle island map.
+- Seen a little from above, facing RIGHT (mirror for left).
+- Weapons are plain real-world weapons with NO skins (grey/black metal, brown wood), held
+  low between the floating hands, never covering the face.
+- Characters stay small in the frame. His first reaction to a detailed version was "thats
+  too much details and they look big" - when in doubt, simpler and smaller.
+
+## What exists
+
+- `brawlers/<Name>.png` - the 12 brawlers holding their weapons, transparent, about
+  270x310 px, plus `_overview.jpg`.
+- `animations/<Name>/` - `<Name>_sheet_right.png` / `_left.png` (2 rows x 4 frames,
+  uniform cells: row 1 walk, row 2 attack), GIFs `<Name>_walk_{right,left}`,
+  `<Name>_run_*` (walk at 85 ms), `<Name>_shoot_*` (`<Name>_attack_*` for Bram, Ash, Chop)
+  and `<Name>_preview.gif` (shot, projectile, hit; melee: walk then swing).
+- `weapons/<weapon>.png` - the 12 weapons on their own, side view pointing right.
+  `weapons/projectiles/` - `bullet_small`, `bullet_sniper`, `pellets_shotgun`, `rocket`,
+  `grenade`, `bullet_heal`.
+- `effects/combat/` - `muzzle_flash`, `bullet_hit`, `explosion`, `melee_swing`, `heal`
+  (4 frames each: appear, grow, peak, fade).
+- `effects/{movement,hit,defeat,support,spawn}/` - older generic effects (dust, sparks,
+  spawn poofs, defeat poofs). They were made for the old roster and are a bit busier than
+  the new style, but have no characters in them.
+- `maps/` - `castle_island_map.png` (4096x4096 scrolling map) and
+  `castle_island_map_1024.png` (the original Gemini image). Castle base on a long island
+  in a lake, 4 gates and roads to 4 stone bridges, big mainland with villages, farms,
+  forests and water exits. To change it, attach the 1024 file in a new Gemini chat and ask
+  for edits that keep everything else the same.
+- `maps/assets/<group>/` - 38 map objects as transparent PNGs. Not made yet: ground pieces
+  (road, water, sand, cobblestone), hay bales, mooring posts, statue, lookout platform.
+- `game/` - the game prototype (TypeScript + Phaser 4 + Vite): the scrollable, zoomable
+  map with the 12 brawlers standing near the castle; tap one to play its attack row. It reads
+  the sheets straight from `animations/`. See `game/README.md`. Artem tells you what to fix
+  next; don't extend it unasked.
+- No pick cards (Artem said not to make them).
 
 ## Known small flaws (fix only if Artem asks)
 
-- Octo's gun is drawn very small, near its mouth, in its armed sheet.
-- Dough's armed sheet reuses his old rolling-pin walk and swing frames, so his bat there is
-  a plain rolling pin without the cloth grip of the weapon icon.
-- The armed "run" GIFs are the armed walk frames played faster (no real armed run row).
-- Mossy's yellow shell flower is in every animation frame except the big heal-burst frame
-  (row 3, frame 3 of `Mossy_sheet_right.png`). Mossy has no entry in `effects/attacks/`.
-- The last `heal_sparkles` frame is greyish; tiny dust balls keep a faint pink rim.
-- Nana holds her slipper only in the attack row (on purpose, it fixed an inconsistency).
+- Bram's, Ash's, Tusk's and Fuse's walk frames 2 and 4 are copies of frames 1 and 3 lifted
+  a few pixels (Gemini dropped the weapon in those frames; fixed with `tools/fix_walk.py`),
+  so their walk is a little stiffer than the others'.
+- Wick shows one eye next to his eye patch, and Jinx's mask has eye holes - the only faces
+  with any feature.
+- The run GIFs are the walk played faster (no separate run row).
+- There is no idle, hurt or death animation yet; `effects/defeat/` can cover deaths.
+- The `rocket` projectile was cut from the loaded RPG (warhead plus the launch flame).
+- The far tip of the heal bullet trail keeps a very faint pink tint.
 
 ## How new art gets made
 
@@ -126,60 +121,44 @@ extension. Artem gave permission for this and for downloading the images.
 Accounts (each gives roughly 5-6 images before a rolling limit; exact reset times are
 on `gemini.google.com/u/N/usage`; when one runs out move to the next):
 
-- `/u/0` and `/u/1` - Russian UI ("Создание изображений" = Create image,
-  "Скачать изображение в полном размере" = Download full size image).
-- `/u/2` and `/u/3` - English UI. `/u/3` shows a "Keep in mind ... Got it" terms box:
-  leave it alone, never click it.
+- `/u/0` and `/u/1` - Russian UI ("Создание изображений" = Create image).
+- `/u/2` and `/u/3` - English UI. `/u/3` sometimes shows a "Keep in mind ... Got it" terms
+  box or a "Students ... Claim offer" box: leave them alone, never click them.
+- Feature popups like "Search your mail, calendar and photos" can be closed with "Not now".
 
 The flow that works:
 
 1. Open `gemini.google.com/u/N/app` (a fresh chat) and take a screenshot first. A limit
    banner or a popup shifts the layout, and a blind click can send a suggested prompt.
-2. Click `+`, choose "Create image". Without it Gemini sometimes answers with text only.
-3. Click `+` again, find the hidden "Upload files" file input with `find`, attach the
-   reference images with `file_upload` (files must be inside your home folder, not
+2. Click `+` (about 298,443 on a 958x888 viewport), choose "Create image" (about 344,584).
+3. Click `+` again (about 298,801), find the hidden "Upload files" file input with `find`,
+   attach the images with `file_upload` (files must be inside your home folder, not
    `/tmp`), press Escape.
 4. Click the prompt box and type the prompt in two `type` actions (one very long type
    action can time out).
-5. Press Enter, wait about 90 seconds, screenshot, then click "Download full size image".
+5. Press Enter, wait about 90 seconds (in two batches; one very long batch of waits can
+   lose the connection), screenshot, then click the download icon at the top right of the
+   image (about 712,275).
 6. The file lands in `C:\Users\ytevi\Downloads\Gemini_Generated_Image_*.jpg` on Artem's
-   PC. List that folder, take the newest file, and stage it into the session. If it isn't
-   there, re-open the chat URL and download again.
+   PC. List that folder, take the newest file by mtime, and stage it into the session.
 
-Prompt rules that worked:
+Prompt rules that worked for this style:
 
 - One fresh chat per image. Gemini gets worse in long chats.
-- Always a huge, fully detailed prompt: character description, exact colors, layout,
-  view, every frame described, background, "no text anywhere".
-- Attach reference images and say they are "my own original characters".
-- Ask for a solid pure magenta `#FF00FF` background. Use pure green `#00FF00` when the
-  subject is pink or purple. Tell Gemini not to use the key color in the art.
-- Sprite sheets: ask for EXACTLY 3 rows x 4 columns. Gemini often returns 4 rows
-  anyway, so look at the result and pick the right rows with the rowmap argument.
-- Effects sheets: 4 rows x 4 frames, one effect per row, no characters.
-- If Gemini refuses, reword (call an attack a "move", drop angry words) and retry once.
-  After two refusals skip it and tell Artem.
-- If the page hangs on "Creating your image", reload the chat URL.
-- Never click terms or "Got it" boxes, never type passwords, never upgrade plans.
-
-### Fixing one thing in a finished sheet
-
-Attach the finished sheet plus the brawler's card, and write: "REDRAW THE FIRST IMAGE AS
-THE SAME SPRITE SHEET. KEEP EXACTLY THE SAME: (list grid, poses, colors, background...).
-CHANGE ONLY THIS ONE THING: ...". Gemini keeps the layout, so the same cut commands work
-again. This is how Mossy's shell flower was added back.
-
-### Armed sheets (weapons held in the hands)
-
-This took four tries, do it this way. Artem rejected guns pasted on in code ("cheap") and
-Gemini sheets where the gun sits on the chest and covers the face ("they're not holding
-it"). Gemini ignores text like "hold it below the chin". What worked: build a DRAFT sheet
-in code with the gun pasted LOW in front of the brawler, two brawlers per image (4 rows x 4
-frames: A walk, A shoot, B walk, B shoot), upload only that draft and ask Gemini to redraw
-the same sheet keeping the gun's position, size and angle and changing only the arms: both
-sleeves reach down to the gun, near fist closed around the grip, far fist under the
-barrel. For new poses with no draft (melee, Capy and Tardi upright, Mossy) attach a
-finished armed sheet as the POSE REFERENCE plus the weapon PNG and the brawler's card.
+- Always a huge, fully detailed prompt. Attach Artem's style reference (the cavemen
+  screenshots) or `brawlers/_overview.jpg`, and say "my own original game characters".
+- Spell out the minimal rules every time (bean body, no eyes, no mouth, stick legs,
+  floating round hands, no small details, small in the cell).
+- Ask for a solid pure magenta `#FF00FF` background and "do not use magenta or pink
+  anywhere on the characters".
+- Animation sheets: attach a clean picture of the two brawlers side by side on magenta
+  (cut PNGs pasted on a 1024x512 magenta canvas), ask for 4 columns x 4 rows (A walk,
+  A attack, B walk, B attack), and say "the weapon is VISIBLE IN EVERY SINGLE FRAME".
+  Gemini still sometimes drops the weapon in walk frames 2 and 4; fix with
+  `tools/fix_walk.py` instead of regenerating.
+- Line-ups: Gemini may return 3 rows instead of 2 with duplicates; just pick the good ones.
+- If Gemini refuses, reword and retry once. After two refusals skip it and tell Artem.
+- Never click terms or offer boxes, never type passwords, never upgrade plans.
 
 ## Tools
 
@@ -187,35 +166,33 @@ Need Python 3 with `numpy`, `Pillow` and `scipy`. Run them with `python3 -I`. Th
 raw Gemini JPG with a magenta or green background and detect the key color from the
 top-left corner.
 
-- `tools/cut_card.py SRCDIR OUTDIR Name [Name ...]` - reads `SRCDIR/<Name>.jpg`, cuts
-  the card out, writes `OUTDIR/<Name>_card.png` and `OUTDIR/_all_cards.jpg`.
-- `tools/build_anim.py SRC.jpg Name OUTDIR [rowmap] [cleanwalk]` - slices a character
-  sheet into aligned frames and writes both sheets, all GIFs and `_check_<Name>.jpg`.
-  `rowmap` picks which rows are walk, run, attack (for a 4-row result use `0,1,3` or
-  `0,1,2`; for a 2-row walk + attack sheet use `0,0,1`; `-` for the default).
-  `cleanwalk` drops stray specks from the walk row.
-- `tools/build_armed.py SHEET.jpg REPO OUTROOT NameA [NameB] [--melee]` - cuts an armed
-  sheet (two brawlers: 4 rows; one brawler: 2 rows) into the armed sheets, GIFs and
-  preview. Needs the brawler's bullet and hit effect in the repo first.
-- `tools/build_fx.py SRC.jpg OUTDIR name1,name2,name3,name4` - slices an effects sheet,
-  one effect per row, and writes the strips, frames, GIFs and a `_check_` image.
-- `tools/cut_items.py SRC.jpg OUTDIR COLS ROWS name1,name2,...` - cuts a grid of loose
-  items (weapons, bullets, hit effects) into one transparent PNG per cell; `-` skips a cell.
-- `tools/cut_assets.py SHEET.png OUTDIR [name1,name2,...] [merge_px]` - cuts a magenta
-  sprite sheet of loose objects into one transparent PNG per object. Run it without names
-  first: it prints the objects it found in reading order and writes a `_check_` image.
-  `merge_px` (default 15) is how far apart parts may be and still count as one object;
-  lower it (9-13) when two neighbours get merged.
-- `tools/build_overviews.py [REPO]` - rebuilds `animations/_overview.jpg` and
-  `animations/_armed_overview.jpg` from every brawler folder in `animations/`. Run it after
-  adding or changing any brawler's sheets.
+- `tools/cut_blobs.py SRC.jpg OUTDIR name1,name2,... [merge_px] [row_tol]` - cuts every
+  separate object (characters, weapons) into its own PNG in reading order. Use it for
+  line-ups and item sheets; it doesn't care how many rows Gemini drew.
+- `tools/build_armed.py SHEET.jpg REPO OUTROOT NameA [NameB] [--melee]` - cuts a 4-row
+  pair sheet (or a 2-row single sheet) into the 2-row sheets, GIFs and preview. It looks
+  for `REPO/weapons/bullets/<name>_bullet.png` and `REPO/effects/weapons/<name>_hit_2.png`
+  (old layout) - point REPO at a scratch folder that has copies of the right projectile
+  and hit frame under those names. Its output files are named `<Name>_armed_*`; drop the
+  `_armed` part when copying into `animations/<Name>/`. For a pair with one melee and one
+  gun brawler, split the sheet into halves and run it once per brawler.
+- `tools/fix_walk.py SRC.jpg OUT.jpg ROW[,ROW]` - on a 4x4 sheet, replaces walk frames 2
+  and 4 of the given rows with frames 1 and 3 lifted a few pixels.
+- `tools/build_fx.py SRC.jpg OUTDIR name1,name2,...` - slices an effects sheet, one effect
+  per row, and writes the strips, frames, GIFs and a `_check_` image.
+- `tools/cut_items.py SRC.jpg OUTDIR COLS ROWS name1,...` - cuts a strict grid of items.
+- `tools/cut_assets.py SHEET.png OUTDIR [names] [merge_px]` - cuts map objects.
+- `tools/build_anim.py`, `tools/cut_card.py` - used for the old roster's unarmed sheets
+  and pick cards.
+- `tools/build_overviews.py [REPO]` - rebuilds `animations/_overview.jpg`,
+  `weapons/_overview.jpg` and `effects/combat/_overview.jpg`.
 
 Always open the `_check_` image before copying anything into the repo. Don't commit
 `_check_` files (they're in `.gitignore`).
 
 ## Ideas Artem hasn't asked for yet (offer, don't do)
 
-- Redraw Octo's armed sheet with a bigger gun held low.
-- A real armed run row for everyone.
-- A Mossy entry in `effects/attacks/`.
-- The missing map pieces listed under `maps/assets/`.
+- Idle, hurt and death animations for the 12.
+- A real run row instead of the sped-up walk.
+- New-style spawn and defeat effects.
+- The missing map pieces listed above.
