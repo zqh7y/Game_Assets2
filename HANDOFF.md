@@ -27,6 +27,13 @@ This repo (`zqh7y/Game_Assets2`, branch `main`) holds the art. Push finished wor
   `<name>.gif`. Groups: `movement`, `hit`, `defeat`, `attacks`, `support`.
   Frames are centered in their cell, so travel (slipper flying, soul rising) is done
   by moving the sprite in code. Effects that point somewhere point right.
+- `maps/` - `castle_island_map.png` (4096x4096, the scrolling battle map) and
+  `castle_island_map_1024.png` (the original Gemini image). Square map: castle base on a
+  long island in a lake, 4 gates and roads to 4 stone bridges, big mainland with wide
+  roads, plazas, villages, farms, forests and water exits. Gemini only outputs 1024 px,
+  so the big file is a 4x Real-ESRGAN (anime_6B) upscale; small details are a bit soft.
+  To change the map, attach the 1024 file in a new Gemini chat and ask for edits that
+  keep everything else the same.
 - `tools/` - the Python scripts that cut the raw Gemini images (see below).
 
 ## Brawlers and roles

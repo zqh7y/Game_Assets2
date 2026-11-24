@@ -7,6 +7,7 @@ Art assets for the brawler game.
 - `brawlers/` - character cards (one PNG per brawler, name on the card)
 - `cards/` - draft pick cards (transparent PNG, one per brawler, with the count badge)
 - `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
+- `maps/` - battle maps (PNG). `castle_island_map.png` is the big scrolling map (4096x4096), `castle_island_map_1024.png` is the original 1024x1024 it was upscaled from
 - `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
 
 ## Brawlers
@@ -53,6 +54,12 @@ Every brawler has walk, run and attack rows. Nana only holds her slipper in the 
 Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
 
 ![All effects](effects/_overview.jpg)
+
+## Map
+
+Castle Island: the castle base on the island is where brawlers spawn, four gates and roads lead to four stone bridges, and the mainland around the lake has wide roads, ring roads, bridge plazas with watchtowers, villages (blue roofs left, red roofs right), farms, forests, cliffs and water exits (docks, beaches, stone steps).
+
+![Castle Island map](maps/castle_island_map_1024.png)
 
 ## Design laws
 
