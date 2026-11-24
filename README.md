@@ -7,7 +7,7 @@ Art assets for the brawler game.
 - `brawlers/` - character cards (one PNG per brawler, name on the card)
 - `cards/` - draft pick cards (transparent PNG, one per brawler, with the count badge)
 - `animations/<Name>/` - walk / run / attack sprite sheets (transparent PNG, 4 frames per row: row 1 walk, row 2 run, row 3 attack; `_right` and mirrored `_left`) plus GIF previews
-- `effects/` - attack and ability effects (coming)
+- `effects/<group>/` - effect animations without characters (transparent PNG). Per effect: `<name>_sheet.png` (4 frames in one strip: appear, grow, peak, fade), `<name>_1.png` to `<name>_4.png` (single frames) and `<name>.gif` (preview)
 
 ## Brawlers
 
@@ -34,10 +34,24 @@ Art assets for the brawler game.
 
 ![All pick cards](cards/_overview.jpg)
 
+## Effects
+
+| Group | Effects |
+| --- | --- |
+| `movement/` | `walk_dust`, `run_dust`, `landing_puff`, `speed_lines` |
+| `hit/` | `hit_spark`, `impact_burst`, `slash_arc`, `critical_hit` |
+| `defeat/` | `smoke_poof`, `star_pop`, `soul_wisp`, `sparkle_ring` |
+| `attacks/` | `beam_light`, `dough_flour`, `soot_cloud`, `honey_bees`, `nana_slipper`, `capy_bonk`, `axo_heart`, `pango_dust`, `bill_shockwave`, `tardi_bubble`, `octo_ink`, `dragon_fire` |
+| `support/` | `heal_sparkles`, `shield_up`, `spawn_poof`, `level_up` |
+
+Each frame is centered in its cell, so travel (a slipper flying, a soul floating up, a beam moving right) is done by moving the sprite in the game. Effects that point somewhere point right; mirror them for left.
+
+![All effects](effects/_overview.jpg)
+
 ## Design laws
 
 - Minimal: one simple blob body, dot eyes, no small details.
 - 3 colors per brawler plus the dark outline.
 - 3/4 side view facing right (mirror the image for left).
 
-Note: the current card PNGs are screen captures (about 507x681). Full-size originals are in Gemini.
+Note: the `brawlers/` PNGs are screen captures (about 507x681); Peep, Dragon and Spooky are not in `brawlers/` (they use the original art from the game).
